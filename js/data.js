@@ -39,8 +39,8 @@ window.MARINHO = {
   trabalho: {
     titulo: "Conheça meu trabalho",
     subtitulo: "Da captação à entrega: como eu transformo o seu negócio em vídeo.",
-    video: "assets/bastidores/bastidores.mp4",
-    capa: "assets/bastidores/bastidores-capa.jpg",
+    video: "assets/bastidores/making-of.mp4",
+    capa: "assets/bastidores/making-of-capa.jpg",
     fotos: [
       { src: "assets/bastidores/foto-1.jpg", legenda: "Captação noturna em gastronomia" },
       { src: "assets/bastidores/foto-2.jpg", legenda: "Gravação na fachada do cliente" },
