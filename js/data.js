@@ -140,9 +140,10 @@ window.MARINHO = {
       cores: ["#1737c9", "#5f80ff"],
       whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero um orçamento de vídeo institucional para a minha empresa.",
       destaque: {
-        titulo: "Sua Empresa em Cena",
-        descricao: "Vídeos que explicam o que você faz e mostram quem está por trás da marca.",
-        ...EX(2),
+        titulo: "Quem Refaz Essa Conta?",
+        descricao: "João Vitor, contador, explica regime tributário de um jeito direto e sem complicação.",
+        video: "assets/videos/institucionais/destaque.mp4",
+        capa: "assets/videos/institucionais/destaque-capa.jpg",
       },
       top5: [
         { titulo: "Quem somos", ...EX(2) },
