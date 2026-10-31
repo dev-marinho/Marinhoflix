@@ -132,9 +132,9 @@ ul { list-style: none; }
 
 .profiles__hero {
   position: relative;
-  height: 56vh;
-  height: 56svh;
-  min-height: 380px;
+  height: 52vh;
+  height: 52svh;
+  min-height: 360px;
   max-height: 760px;
 }
 
@@ -226,11 +226,11 @@ ul { list-style: none; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 22px 18px;
-  max-width: 460px;
+  gap: 20px 26px;
+  max-width: 300px; /* 2 por linha no celular (grade 2x2) */
   margin: 0 auto;
 }
-.profiles__grid li { width: min(25vw, 112px); }
+.profiles__grid li { width: min(30vw, 120px); }
 
 .profile {
   display: flex;

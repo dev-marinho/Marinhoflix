@@ -87,33 +87,6 @@ window.MARINHO = {
       ],
     },
 
-    /* ------------------------------------------------ ÓTICA */
-    {
-      id: "otica",
-      nome: "Ótica",
-      icone: "otica",
-      cores: ["#16304a", "#5d8299"],
-      whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero um orçamento de vídeo para a minha ótica.",
-      destaque: {
-        titulo: "Estilo em Foco",
-        descricao: "Armações, lentes e atendimento mostrados com o cuidado que a sua ótica merece.",
-        ...EX(6),
-      },
-      top5: [
-        { titulo: "Coleção nova", ...EX(6) },
-        { titulo: "Tratamentos nas lentes", ...EX(2) },
-        { titulo: "Provador de armações", ...EX(4) },
-        { titulo: "Exame de vista", ...EX(1) },
-        { titulo: "Tour pela loja", ...EX(5) },
-      ],
-      aprovados: [
-        { cliente: "@cliente.exemplo", ...EX(6), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(2), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(4), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(1), link: "https://www.instagram.com/mkt.marinho/" },
-      ],
-    },
-
     /* ------------------------------------------------ CIRURGIAS */
     {
       id: "cirurgias",

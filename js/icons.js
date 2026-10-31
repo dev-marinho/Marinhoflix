@@ -19,17 +19,6 @@
       <path d="M50 67 C45 62 37 62 33 68 C39 67 45 70 50 68 C55 70 61 67 67 68 C63 62 55 62 50 67Z" fill="${W}"/>
       ${smile("M39 77 Q50 85 61 77")}`,
 
-    /* Ótica: óculos redondos com os olhos dentro das lentes */
-    otica: `
-      <g fill="rgba(255,255,255,.14)" stroke="${W}" stroke-width="5">
-        <circle cx="32" cy="45" r="14"/><circle cx="68" cy="45" r="14"/>
-      </g>
-      <path d="M46 43 Q50 38 54 43" fill="none" stroke="${W}" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M18 42 L7 37 M82 42 L93 37" stroke="${W}" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M24 39 Q27 34 32 33" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2.5" stroke-linecap="round"/>
-      ${eye(32, 46)}${eye(68, 46)}
-      ${smile("M36 72 Q50 82 64 72")}`,
-
     /* Cirurgião: touca + máscara cirúrgica */
     cirurgias: `
       <path d="M18 40 C14 22 30 11 50 11 C70 11 86 22 82 40 Z" fill="${W}"/>
