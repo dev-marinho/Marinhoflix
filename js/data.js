@@ -126,11 +126,11 @@ window.MARINHO = {
         capa: "assets/videos/cirurgias/destaque-capa.jpg",
       },
       top5: [
-        { titulo: "Explicando o procedimento", ...EX(3) },
-        { titulo: "Cirurgia refrativa", ...EX(2) },
-        { titulo: "Antes da cirurgia", ...EX(6) },
-        { titulo: "Dúvidas frequentes", ...EX(4) },
-        { titulo: "Estrutura da clínica", ...EX(1) },
+        { titulo: "Mamoplastia de aumento", video: "assets/videos/cirurgias/destaque.mp4", capa: "assets/videos/cirurgias/top1-capa.jpg" },
+        { titulo: "Centro cirúrgico", video: "assets/videos/cirurgias/top2.mp4", capa: "assets/videos/cirurgias/top2-capa.jpg" },
+        { titulo: "Pós-operatório imediato", video: "assets/videos/cirurgias/top3.mp4", capa: "assets/videos/cirurgias/top3-capa.jpg" },
+        { titulo: "Cirurgião e instrumentadora", video: "assets/videos/cirurgias/top4.mp4", capa: "assets/videos/cirurgias/top4-capa.jpg" },
+        { titulo: "Antes e depois", video: "assets/videos/cirurgias/top5.mp4", capa: "assets/videos/cirurgias/top5-capa.jpg" },
       ],
       aprovados: [
         { cliente: "@cliente.exemplo", ...EX(3), link: "https://www.instagram.com/mkt.marinho/" },
