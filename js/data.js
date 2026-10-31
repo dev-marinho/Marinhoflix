@@ -133,10 +133,11 @@ window.MARINHO = {
         { titulo: "Antes e depois", video: "assets/videos/cirurgias/top5.mp4", capa: "assets/videos/cirurgias/top5-capa.jpg" },
       ],
       aprovados: [
-        { cliente: "@cliente.exemplo", ...EX(3), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(2), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(6), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(5), link: "https://www.instagram.com/mkt.marinho/" },
+        {
+          cliente: "@dr.augustopedretti",
+          capa: "assets/videos/cirurgias/post1-capa.jpg",
+          link: "https://www.instagram.com/reel/DdoMiPHRSsl/",
+        },
       ],
     },
 
