@@ -46,6 +46,12 @@ window.MARINHO = {
       { src: "assets/bastidores/foto-2.jpg", legenda: "Gravação na fachada do cliente" },
       { src: "assets/bastidores/foto-3.jpg", legenda: "Entrevista com estabilizador" },
       { src: "assets/bastidores/foto-4.jpg", legenda: "Revisando as cenas com a cliente" },
+      { src: "assets/bastidores/foto-5.jpg", legenda: "Captando o cardápio com a cliente" },
+      { src: "assets/bastidores/foto-6.jpg", legenda: "Conferindo o take no estabilizador" },
+      { src: "assets/bastidores/foto-7.jpg", legenda: "Pausa entre uma cena e outra" },
+      { src: "assets/bastidores/foto-8.jpg", legenda: "Montando a cena com tripé e luz" },
+      { src: "assets/bastidores/foto-9.jpg", legenda: "Dirigindo a cena do vinho" },
+      { src: "assets/bastidores/foto-10.jpg", legenda: "Ajustando os detalhes antes de gravar" },
     ],
     etapas: [
       { titulo: "Briefing", texto: "A gente conversa sobre o seu negócio, o seu público e o objetivo de cada vídeo." },
