@@ -79,10 +79,11 @@ window.MARINHO = {
         { titulo: "Camarão da casa", video: "assets/videos/gastronomia/top5.mp4", capa: "assets/videos/gastronomia/top5-capa.jpg" },
       ],
       aprovados: [
-        { cliente: "@cliente.exemplo", ...EX(1), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(5), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(3), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(6), link: "https://www.instagram.com/mkt.marinho/" },
+        { cliente: "@anexo.gastro", capa: "assets/videos/gastronomia/destaque-capa.jpg", link: "https://www.instagram.com/reel/Dd7gytBzlpb/" },
+        { cliente: "@anexo.gastro", capa: "assets/videos/gastronomia/post2-capa.jpg?v=202610311458", link: "https://www.instagram.com/reel/DdJtKZ3RQTa/" },
+        { cliente: "@anexo.gastro", capa: "assets/videos/gastronomia/post3-capa.jpg?v=202610311458", link: "https://www.instagram.com/reel/DZLVu_2z01C/" },
+        { cliente: "@anexo.gastro", capa: "assets/videos/gastronomia/post4-capa.jpg?v=202610311458", link: "https://www.instagram.com/reel/DXPhzm_E04N/" },
+        { cliente: "@anexo.gastro", capa: "assets/videos/gastronomia/post5-capa.jpg?v=202610311458", link: "https://www.instagram.com/reel/DWojZV2DoHU/" },
       ],
     },
 
