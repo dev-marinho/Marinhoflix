@@ -88,7 +88,11 @@
       Object.assign(v, { src: fundo.src, muted: true, loop: true, autoplay: true, playsInline: true });
       v.setAttribute("muted", "");
       v.setAttribute("playsinline", "");
-      if (fundo.capa) v.poster = fundo.capa;
+      if (fundo.capa) {
+        v.poster = fundo.capa;
+        bg.style.backgroundImage = `url("${fundo.capa}")`; // usado no fundo desfocado (computador)
+      }
+      bg.classList.add("has-video");
       bg.appendChild(v);
     } else if (fundo.tipo === "imagem" && fundo.src) {
       const img = document.createElement("img");
@@ -99,8 +103,8 @@
       bg.classList.add("is-placeholder");
     }
 
-    $("#feature-title").textContent = data.telaPerfis.titulo;
     $("#feature-sub").textContent = data.telaPerfis.subtitulo;
+    if (data.telaPerfis.pergunta) $("#profiles-question").textContent = data.telaPerfis.pergunta;
   }
 
   function buildProfilesGrid() {

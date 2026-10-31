@@ -27,12 +27,12 @@ window.MARINHO = {
      tipo: "video" | "imagem" | "nenhum" (usa o fundo azul de exemplo) */
   telaPerfis: {
     fundo: {
-      tipo: "nenhum",
-      src: "",  // ex.: "assets/videos/showreel.mp4" ou "assets/img/destaque.jpg"
-      capa: "", // imagem exibida enquanto o vídeo carrega
+      tipo: "video", // "video" | "imagem" | "nenhum"
+      src: "assets/bastidores/fundo-perfis.mp4",
+      capa: "assets/bastidores/fundo-perfis-capa.jpg", // aparece enquanto o vídeo carrega
     },
-    titulo: "Showreel 2026",
-    subtitulo: "Captação e edição mobile para marcas que querem ser vistas",
+    subtitulo: "Captação e edição mobile para marcas que querem ser vistas.",
+    pergunta: "Escolha o seu perfil",
   },
 
   /* Página "Conheça meu trabalho" */
