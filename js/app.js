@@ -124,9 +124,7 @@
       if (!btn) return;
       const perfil = data.perfis.find((p) => p.id === btn.dataset.id);
       btn.classList.add("is-picked");
-      setTimeout(() => btn.classList.remove("is-picked"), 400);
-      // Próxima etapa: abrir a página do perfil (perfil.html?area=...)
-      toast(`Área ${perfil.nome}: em construção 🎬`);
+      setTimeout(() => (location.href = `perfil.html?area=${perfil.id}`), 220);
     });
   }
 
@@ -141,6 +139,14 @@
   buildLogo();
   buildProfilesHero();
   buildProfilesGrid();
+
+  // Vindo de dentro do site ("Perfis"): pula a abertura e mostra os perfis direto
+  if (location.hash === "#perfis") {
+    document.querySelector("#intro").classList.remove("is-active");
+    document.querySelector("#profiles").style.transition = "none";
+    showProfiles();
+    return;
+  }
 
   // Começa a abertura assim que a fonte da logo carrega (no máx. 1,2 s de tela preta)
   let started = false;
