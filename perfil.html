@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Marinho | Portfólio</title>
+  <meta name="description" content="Portfólio de Marinho: captação e edição de vídeos." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+
+  <!-- Prévia ao compartilhar o link (WhatsApp, Instagram, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Marinho" />
+  <meta property="og:title" content="Marinho | Portfólio" />
+  <meta property="og:description" content="Portfólio de Marinho: captação e edição de vídeos." />
+  <meta property="og:url" content="https://dev-marinho.github.io/Marinhoflix/perfil.html" />
+  <meta property="og:image" content="https://dev-marinho.github.io/Marinhoflix/assets/brand/compartilhar.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=202610311656" />
+  <link rel="stylesheet" href="css/perfil.css?v=202610311656" />
+</head>
+<body class="page">
+
+  <!-- ============ TOPO ============ -->
+  <header class="topbar" id="topbar">
+    <div class="topbar__row">
+      <a class="topbar__logo" href="index.html#perfis" aria-label="Voltar para os perfis">MARINHO</a>
+
+      <div class="topbar__actions">
+        <a class="icon-btn" id="btn-instagram" data-instagram target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" class="fill"/></svg>
+        </a>
+        <button class="icon-btn" id="btn-email" type="button" aria-label="Copiar e-mail">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        </button>
+        <a class="btn-quote" id="btn-orcamento" data-quote target="_blank" rel="noopener">Orçamento</a>
+      </div>
+    </div>
+
+    <nav class="chips" id="chips" aria-label="Áreas"></nav>
+  </header>
+
+  <main class="content" id="content">
+    <!-- ============ DESTAQUE ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__card">
+        <video class="hero__video" id="hero-video" muted loop playsinline autoplay preload="auto"></video>
+        <div class="hero__shade"></div>
+        <span class="hero__badge" id="hero-badge"></span>
+        <div class="hero__info">
+          <h1 class="hero__title" id="hero-title"></h1>
+          <p class="hero__desc" id="hero-desc"></p>
+          <button class="btn-play" id="hero-play" type="button">
+            <svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>
+            Assistir
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TOP 5 ============ -->
+    <section class="row">
+      <h2 class="row__title" id="top5-title"></h2>
+      <div class="row__track row__track--top" id="top5"></div>
+    </section>
+
+    <!-- ============ APROVADO E PUBLICADO ============ -->
+    <section class="row">
+      <h2 class="row__title">Aprovado e publicado</h2>
+      <p class="row__sub">Vídeos meus que o próprio cliente publicou no Instagram</p>
+      <div class="row__track" id="aprovados"></div>
+    </section>
+  </main>
+
+  <!-- ============ BARRA FLUTUANTE ============ -->
+  <nav class="dock" aria-label="Navegação">
+    <button class="dock__item is-active" id="dock-home" type="button">
+      <svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>
+      <span>Início</span>
+    </button>
+    <a class="dock__item" href="index.html#perfis">
+      <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></svg>
+      <span>Perfis</span>
+    </a>
+    <a class="dock__item dock__item--accent" id="dock-orcamento" data-quote target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6z"/><path d="M9.2 9.3c.3 1.9 1.6 3.6 3.6 4.6l1.1-1 1.6.7v1.3c-3.6.4-7.2-3.2-6.8-6.8h1.3l.7 1.6z" class="fill"/></svg>
+      <span>Orçamento</span>
+    </a>
+    <a class="dock__item" id="dock-instagram" data-instagram target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" class="fill"/></svg>
+      <span>Instagram</span>
+    </a>
+  </nav>
+
+  <!-- ============ PLAYER EM TELA CHEIA ============ -->
+  <div class="player" id="player" aria-hidden="true" role="dialog" aria-label="Player de vídeo">
+    <video class="player__video" id="player-video" playsinline controls preload="auto"></video>
+    <button class="player__close" id="player-close" type="button" aria-label="Fechar">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <p class="player__title" id="player-title"></p>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js?v=202610311656"></script>
+  <script src="js/common.js?v=202610311656"></script>
+  <script src="js/perfil.js?v=202610311656"></script>
+</body>
+</html>

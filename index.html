@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Marinho | Videomaker e Storymaker mobile</title>
+  <meta name="description" content="Portfólio de Marinho: captação e edição de vídeos para gastronomia, cirurgias e institucionais." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+
+  <!-- Prévia ao compartilhar o link (WhatsApp, Instagram, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Marinho" />
+  <meta property="og:title" content="Marinho | Videomaker e Storymaker mobile" />
+  <meta property="og:description" content="Portfólio de Marinho: captação e edição de vídeos para gastronomia, cirurgias e institucionais." />
+  <meta property="og:url" content="https://dev-marinho.github.io/Marinhoflix/" />
+  <meta property="og:image" content="https://dev-marinho.github.io/Marinhoflix/assets/brand/compartilhar.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=202610311656" />
+</head>
+<body>
+
+  <!-- 1. Abertura: "M" -> "MARINHO" -->
+  <section class="screen intro is-active" id="intro" aria-label="Marinho">
+    <div class="logo" id="intro-logo">
+      <span class="logo__m">M</span><span class="logo__rest" id="logo-rest"></span>
+    </div>
+  </section>
+
+  <!-- 2. Qual o seu negócio? -->
+  <section class="screen profiles" id="profiles" aria-label="Escolha o seu perfil">
+    <div class="profiles__hero">
+      <div class="profiles__bg" id="profiles-bg"></div>
+      <div class="profiles__shade"></div>
+      <div class="profiles__feature">
+        <h1 class="profiles__logo">MARINHO</h1>
+        <span class="profiles__line" aria-hidden="true"></span>
+        <p class="profiles__sub" id="feature-sub"></p>
+      </div>
+    </div>
+
+    <div class="profiles__panel">
+      <h2 class="profiles__question" id="profiles-question">Escolha o seu perfil</h2>
+      <ul class="profiles__grid" id="profiles-grid"></ul>
+
+      <!-- Não achou o seu perfil? -->
+      <div class="profiles__cta">
+        <p class="profiles__cta-text">
+          <span id="cta-chamada"></span>
+          <strong id="cta-destaque"></strong>
+        </p>
+        <a class="profiles__cta-btn" id="cta-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6z"/><path d="M9.2 9.3c.3 1.9 1.6 3.6 3.6 4.6l1.1-1 1.6.7v1.3c-3.6.4-7.2-3.2-6.8-6.8h1.3l.7 1.6z" class="fill"/></svg>
+          <span id="cta-label"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Som da abertura (arquivo próprio, livre de direitos) -->
+  <audio id="intro-audio" src="assets/audio/intro.mp3?v=202610311656" preload="auto" playsinline></audio>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js?v=202610311656"></script>
+  <script src="js/icons.js?v=202610311656"></script>
+  <script src="js/app.js?v=202610311656"></script>
+</body>
+</html>
