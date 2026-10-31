@@ -81,7 +81,7 @@ ul { list-style: none; }
 
 .intro.play .logo {
   animation:
-    glow 1.1s ease-in-out 1.75s,
+    glow 1.1s ease-in-out 1.55s,
     logoOut 0.95s cubic-bezier(0.7, 0, 0.84, 0) 2.75s forwards;
 }
 .intro.play .logo__m {

@@ -6,7 +6,7 @@ Portfólio em estilo de plataforma de streaming, feito em HTML, CSS e JavaScript
 Abra o `index.html` no navegador ou publique pelo **GitHub Pages**.
 
 ## Etapas
-- [x] Abertura animada: **M → MARINHO** com som próprio (batidas graves com eco, livre de direitos)
+- [x] Abertura animada: **M → MARINHO** com som sincronizado (assets/audio/intro.mp3)
 - [x] Tela "Escolha o seu perfil" com 3 perfis e vídeo de bastidores no fundo
 - [x] Página de cada perfil (destaque, Top 5, "Aprovado e publicado")
 - [x] Menu superior e barra flutuante (Instagram, Orçamento, E-mail, perfis)
