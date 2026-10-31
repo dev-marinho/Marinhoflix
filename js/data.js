@@ -11,9 +11,6 @@
      link:    link do post do cliente no Instagram
    ========================================================== */
 
-// Atalhos para os vídeos de exemplo (apague quando colocar os seus)
-const EX = (n) => ({ video: `assets/exemplos/video-${n}.mp4`, capa: `assets/exemplos/capa-${n}.jpg` });
-
 window.MARINHO = {
   marca: "MARINHO",
 
@@ -153,10 +150,10 @@ window.MARINHO = {
         { titulo: "A legislação muda", video: "assets/videos/institucionais/top5.mp4", capa: "assets/videos/institucionais/top5-capa.jpg" },
       ],
       aprovados: [
-        { cliente: "@cliente.exemplo", ...EX(2), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(5), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(1), link: "https://www.instagram.com/mkt.marinho/" },
-        { cliente: "@cliente.exemplo", ...EX(4), link: "https://www.instagram.com/mkt.marinho/" },
+        { cliente: "@drjoaoterra.oftalmo", capa: "assets/videos/institucionais/top2-capa.jpg", link: "https://www.instagram.com/reel/Deu7P5QIIZY/" },
+        { cliente: "@joaovtrmbatista", capa: "assets/videos/institucionais/top4-capa.jpg", link: "https://www.instagram.com/reel/DfCe2TxuZ-t/" },
+        { cliente: "@rafachicreotica", capa: "assets/videos/institucionais/post3-capa.jpg?v=202610311646", link: "https://www.instagram.com/reel/DdljXnuSbeo/" },
+        { cliente: "@gphnovafriburgo", capa: "assets/videos/institucionais/post4-capa.jpg?v=202610311646", link: "https://www.instagram.com/reel/DdkHr0kumnS/" },
       ],
     },
   ],
