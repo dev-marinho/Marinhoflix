@@ -1,0 +1,385 @@
+/* ==========================================================
+   MARINHO — Portfólio (estilo streaming)
+   ========================================================== */
+:root {
+  --blue: #00a8ff;
+  --blue-light: #6fd6ff;
+  --blue-dark: #006fd1;
+  --bg: #000;
+  --panel: #161616;
+  --text: #fff;
+  --muted: #a8a8a8;
+
+  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+body { overflow: hidden; }
+
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { list-style: none; }
+
+/* ---------- Telas ---------- */
+.screen {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+}
+.screen.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease;
+}
+
+/* ==========================================================
+   1. TOQUE PARA ENTRAR
+   ========================================================== */
+.gate { display: grid; place-items: center; background: #000; }
+
+.gate__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: 48px;
+}
+.gate__ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 168, 255, 0.7);
+  box-shadow: 0 0 24px rgba(0, 168, 255, 0.25), inset 0 0 18px rgba(0, 168, 255, 0.15);
+  animation: breathe 2.4s ease-in-out infinite;
+}
+.gate__ring::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1.5px solid var(--blue);
+  animation: ripple 2.4s ease-out infinite;
+}
+.gate__ring svg { width: 28px; height: 28px; margin-left: 4px; fill: var(--blue); }
+.gate__text {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.gate__btn:active .gate__ring { transform: scale(0.94); }
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* ==========================================================
+   2. ABERTURA  —  "M"  ->  "MARINHO"
+   ========================================================== */
+.intro { display: grid; place-items: center; background: #000; overflow: hidden; }
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+  font-family: var(--font-display);
+  font-size: clamp(76px, 25vw, 190px);
+  line-height: 0.8;
+  letter-spacing: 0.015em;
+  transform-origin: 9% 55%;
+  will-change: transform, opacity, filter;
+}
+
+/* letras com degradê azul (efeito "fita" iluminada) */
+.logo__m,
+.logo__rest > span {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--blue-light) 0%, var(--blue) 42%, var(--blue-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-top: 0.06em;
+}
+
+.logo__m { opacity: 0; }
+.logo__rest { display: inline-flex; max-width: 0; overflow: hidden; }
+.logo__rest > span { opacity: 0; transform: translateX(-0.35em); }
+
+.intro.play .logo {
+  animation:
+    glow 1.1s ease-in-out 1.75s,
+    logoOut 0.95s cubic-bezier(0.7, 0, 0.84, 0) 2.75s forwards;
+}
+.intro.play .logo__m {
+  animation: mIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+.intro.play .logo__rest {
+  animation: expand 0.85s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
+}
+.intro.play .logo__rest > span {
+  animation: letterIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(1.1s + var(--i) * 0.07s);
+}
+
+@keyframes mIn {
+  0% { opacity: 0; transform: scale(1.6); filter: blur(14px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+@keyframes expand {
+  to { max-width: var(--rest-w, 3em); }
+}
+@keyframes letterIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(0, 168, 255, 0)); }
+  50% { filter: drop-shadow(0 0 26px rgba(0, 168, 255, 0.85)); }
+}
+@keyframes logoOut {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(9); opacity: 0; }
+}
+
+/* acessibilidade: sem zoom/blur para quem prefere menos movimento */
+.intro.reduced .logo,
+.intro.reduced .logo__m,
+.intro.reduced .logo__rest,
+.intro.reduced .logo__rest > span { animation: none; opacity: 1; transform: none; max-width: none; }
+
+/* ==========================================================
+   3. QUAL O SEU NEGÓCIO?
+   ========================================================== */
+.profiles {
+  background: #000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.profiles__hero {
+  position: relative;
+  height: 56vh;
+  height: 56svh;
+  min-height: 380px;
+  max-height: 760px;
+}
+
+.profiles__bg { position: absolute; inset: 0; overflow: hidden; }
+.profiles__bg video,
+.profiles__bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* fundo de exemplo enquanto não há vídeo/foto */
+.profiles__bg.is-placeholder {
+  background:
+    radial-gradient(90% 55% at 72% 22%, rgba(0, 168, 255, 0.45), transparent 62%),
+    radial-gradient(70% 50% at 12% 70%, rgba(0, 111, 209, 0.35), transparent 65%),
+    linear-gradient(180deg, #0a1424 0%, #04070d 100%);
+}
+.profiles__bg.is-placeholder::before {
+  /* linhas de "luz de estúdio" */
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: repeating-linear-gradient(115deg, transparent 0 46px, rgba(111, 214, 255, 0.05) 46px 48px);
+  animation: drift 18s linear infinite;
+}
+@keyframes drift { to { transform: translateX(96px); } }
+
+.profiles__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0) 22%,
+    rgba(0, 0, 0, 0) 45%,
+    rgba(0, 0, 0, 0.75) 78%,
+    #000 100%
+  );
+}
+
+.profiles__feature {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  padding: 0 24px;
+  text-align: center;
+}
+.profiles__brand {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  text-shadow: 0 0 18px rgba(0, 168, 255, 0.45);
+}
+.profiles__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(54px, 15vw, 96px);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+.profiles__sub {
+  margin: 14px auto 0;
+  max-width: 340px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* painel escuro com topo curvo */
+.profiles__panel {
+  position: relative;
+  margin-top: -40px;
+  padding: 34px 18px calc(48px + var(--safe-bottom));
+  background: var(--panel);
+  border-radius: 50% 50% 0 0 / 38px 38px 0 0;
+  min-height: 50vh;
+  min-height: 50svh;
+}
+.profiles__question {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.profiles__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px 18px;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.profiles__grid li { width: min(25vw, 112px); }
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.profile__tile {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background:
+    radial-gradient(120% 80% at 25% 10%, rgba(255, 255, 255, 0.28), transparent 55%),
+    linear-gradient(150deg, #36c3ff 0%, var(--blue) 40%, var(--blue-dark) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 10px 26px rgba(0, 120, 220, 0.22);
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+  transition: transform 0.2s ease, outline-color 0.2s ease, box-shadow 0.2s ease;
+}
+.profile__tile svg {
+  width: 50%;
+  height: 50%;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 2px 4px rgba(0, 40, 90, 0.35));
+}
+.profile__name { font-size: 15px; font-weight: 600; color: #e6e6e6; transition: color 0.2s; }
+
+.profile:hover .profile__tile,
+.profile:focus-visible .profile__tile { outline-color: #fff; }
+.profile:hover .profile__name,
+.profile:focus-visible .profile__name { color: #fff; }
+.profile:focus-visible { outline: none; }
+.profile:active .profile__tile { transform: scale(0.94); }
+.profile.is-picked .profile__tile {
+  transform: scale(0.94);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 0 4px rgba(0, 168, 255, 0.35), 0 0 34px rgba(0, 168, 255, 0.6);
+}
+
+/* entrada suave da tela */
+.profiles.is-entering .profiles__feature { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+.profiles.is-entering .profiles__question { animation: fadeUp 0.7s ease 0.35s both; }
+.profiles.is-entering .profiles__grid li {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(0.45s + var(--i) * 0.07s);
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Computador ---------- */
+@media (min-width: 760px) {
+  .profiles__hero { height: 64vh; }
+  .profiles__feature { bottom: 80px; }
+  .profiles__panel {
+    max-width: 880px;
+    margin: -48px auto 0;
+    border-radius: 50% 50% 0 0 / 48px 48px 0 0;
+  }
+  .profiles__grid { max-width: none; gap: 28px; }
+  .profiles__grid li { width: 132px; }
+  .profiles__question { font-size: 20px; margin-bottom: 30px; }
+}
+
+/* ==========================================================
+   TOAST
+   ========================================================== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(28px + var(--safe-bottom));
+  z-index: 50;
+  max-width: calc(100% - 32px);
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: rgba(30, 30, 30, 0.92);
+  border: 1px solid rgba(0, 168, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 16px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
