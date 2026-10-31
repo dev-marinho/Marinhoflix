@@ -120,9 +120,10 @@ window.MARINHO = {
       cores: ["#008a9e", "#55d3d6"],
       whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero um orçamento de vídeo para a minha clínica/consultório.",
       destaque: {
-        titulo: "Dentro do Centro Cirúrgico",
-        descricao: "Conteúdo médico com ética, técnica e uma linguagem que aproxima o paciente.",
-        ...EX(3),
+        titulo: "Mamoplastia de Aumento",
+        descricao: "Do consultório ao centro cirúrgico: o procedimento explicado com ética e clareza.",
+        video: "assets/videos/cirurgias/destaque.mp4",
+        capa: "assets/videos/cirurgias/destaque-capa.jpg",
       },
       top5: [
         { titulo: "Explicando o procedimento", ...EX(3) },
