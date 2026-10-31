@@ -32,7 +32,7 @@
       .map(
         (v, i) => `
         <div class="top-item">
-          <span class="top-item__num" aria-hidden="true">${i + 1}</span>
+          <span class="top-item__num" data-n="${i + 1}" aria-hidden="true">${i + 1}</span>
           <button class="card" type="button" data-i="${i}" style="background-image:url('${esc(v.capa)}')" aria-label="Assistir ${esc(v.titulo)}">
             <span class="card__play">${PLAY_ICON}</span>
             <span class="card__label">${esc(v.titulo)}</span>
