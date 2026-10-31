@@ -51,13 +51,18 @@
     rest.style.setProperty("--rest-w", Math.ceil(w) + 2 + "px");
   }
 
-  async function startIntro() {
-    IntroSound.unlock();
-    // garante que a fonte da logo já carregou antes de medir
-    if (document.fonts && document.fonts.ready) {
-      const fontLoad = document.fonts.load('400 1em "Bebas Neue"').then(() => document.fonts.ready);
-      await Promise.race([fontLoad, new Promise((r) => setTimeout(r, 1500))]);
-    }
+  function playIntroAudio() {
+    // iPhone: modo "playback" faz o som tocar mesmo com o celular no silencioso
+    try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}
+    const audio = $("#intro-audio");
+    audio.currentTime = 0;
+    const p = audio.play();
+    if (p) p.catch(() => {});
+  }
+
+  function startIntro() {
+    // o som precisa começar no mesmo instante do toque (regra dos navegadores de celular)
+    playIntroAudio();
     show("intro");
     measureLogo();
 
@@ -70,7 +75,6 @@
     // força reflow para a animação sempre recomeçar
     void $("#intro").offsetWidth;
     $("#intro").classList.add("play");
-    IntroSound.play(T.mIn, T.expand);
     setTimeout(showProfiles, T.end * 1000);
   }
 
@@ -104,10 +108,11 @@
     data.perfis.forEach((p, i) => {
       const li = document.createElement("li");
       li.style.setProperty("--i", i);
+      const [c1, c2] = p.cores || ["#0086d6", "#4fc3ff"];
       li.innerHTML = `
         <button class="profile" type="button" data-id="${p.id}">
-          <span class="profile__tile">
-            <svg viewBox="0 0 24 24" aria-hidden="true">${icons[p.icone] || ""}</svg>
+          <span class="profile__tile" style="--c1:${c1};--c2:${c2}">
+            <svg viewBox="0 0 100 100" aria-hidden="true">${icons[p.icone] || ""}</svg>
           </span>
           <span class="profile__name">${p.nome}</span>
         </button>`;
@@ -136,6 +141,11 @@
   buildLogo();
   buildProfilesHero();
   buildProfilesGrid();
+
+  // carrega a fonte da logo enquanto a pessoa ainda está na tela "Toque para entrar"
+  if (document.fonts && document.fonts.load) {
+    document.fonts.load('400 1em "Bebas Neue"').then(measureLogo).catch(() => {});
+  }
 
   $("#gate-btn").addEventListener("click", startIntro, { once: true });
 })();
