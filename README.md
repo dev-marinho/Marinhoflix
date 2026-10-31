@@ -11,7 +11,7 @@ Abra o `index.html` no navegador ou publique pelo **GitHub Pages**.
 - [x] Página de cada perfil (destaque, Top 5, "Aprovado e publicado")
 - [x] Menu superior e barra flutuante (Instagram, Orçamento, E-mail, perfis)
 - [ ] Trocar vídeos de exemplo pelos vídeos reais
-- [ ] Página "Conheça o meu trabalho"
+- [x] Página "Conheça o meu trabalho" (vídeo e fotos de bastidores + passo a passo)
 
 ## Onde editar
 Todos os textos, contatos, perfis e vídeos ficam em **`js/data.js`**.

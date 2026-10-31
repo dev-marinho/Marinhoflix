@@ -35,6 +35,28 @@ window.MARINHO = {
     subtitulo: "Captação e edição mobile para marcas que querem ser vistas",
   },
 
+  /* Página "Conheça meu trabalho" */
+  trabalho: {
+    titulo: "Conheça meu trabalho",
+    subtitulo: "Da captação à entrega: como eu transformo o seu negócio em vídeo.",
+    video: "assets/bastidores/bastidores.mp4",
+    capa: "assets/bastidores/bastidores-capa.jpg",
+    fotos: [
+      { src: "assets/bastidores/foto-1.jpg", legenda: "Captação noturna em gastronomia" },
+      { src: "assets/bastidores/foto-2.jpg", legenda: "Gravação na fachada do cliente" },
+      { src: "assets/bastidores/foto-3.jpg", legenda: "Entrevista com estabilizador" },
+      { src: "assets/bastidores/foto-4.jpg", legenda: "Revisando as cenas com a cliente" },
+    ],
+    etapas: [
+      { titulo: "Briefing", texto: "A gente conversa sobre o seu negócio, o seu público e o objetivo de cada vídeo." },
+      { titulo: "Roteiro", texto: "Planejo as cenas, os ganchos e a mensagem para o vídeo prender a atenção desde o primeiro segundo." },
+      { titulo: "Captação", texto: "Gravação no seu espaço, com celular profissional, estabilizador e iluminação." },
+      { titulo: "Edição", texto: "Cortes dinâmicos, trilha, legendas e tratamento de cor no padrão das redes sociais." },
+      { titulo: "Entrega", texto: "Vídeos prontos para postar, no formato certo para cada rede." },
+    ],
+    whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero solicitar um orçamento.",
+  },
+
   perfis: [
     /* ------------------------------------------------ GASTRONOMIA */
     {
