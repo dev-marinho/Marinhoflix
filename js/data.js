@@ -66,16 +66,17 @@ window.MARINHO = {
       cores: ["#0086d6", "#4fc3ff"], // degradê do avatar (topo, base)
       whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero um orçamento de vídeo para o meu restaurante/bar.",
       destaque: {
-        titulo: "Drinks de Assinatura",
-        descricao: "Do preparo ao primeiro gole: vídeos que dão sede só de assistir.",
-        ...EX(1),
+        titulo: "Quatro Atos",
+        descricao: "Fogo na mesa e um prato servido em quatro atos: gastronomia que vira espetáculo.",
+        video: "assets/videos/gastronomia/destaque.mp4",
+        capa: "assets/videos/gastronomia/destaque-capa.jpg",
       },
       top5: [
-        { titulo: "Drink autoral", ...EX(1) },
-        { titulo: "Prato do chef", ...EX(5) },
-        { titulo: "Bastidores da cozinha", ...EX(2) },
-        { titulo: "Inauguração", ...EX(3) },
-        { titulo: "Menu da semana", ...EX(4) },
+        { titulo: "Brisa de Setembro", video: "assets/videos/gastronomia/top1.mp4", capa: "assets/videos/gastronomia/top1-capa.jpg" },
+        { titulo: "Pappardelle com ragu de short rib", video: "assets/videos/gastronomia/top2.mp4", capa: "assets/videos/gastronomia/top2-capa.jpg" },
+        { titulo: "Seu amor merece um jantar", video: "assets/videos/gastronomia/top3.mp4", capa: "assets/videos/gastronomia/top3-capa.jpg" },
+        { titulo: "Menu Dia dos Namorados", video: "assets/videos/gastronomia/top4.mp4", capa: "assets/videos/gastronomia/top4-capa.jpg" },
+        { titulo: "Camarão da casa", video: "assets/videos/gastronomia/top5.mp4", capa: "assets/videos/gastronomia/top5-capa.jpg" },
       ],
       aprovados: [
         { cliente: "@cliente.exemplo", ...EX(1), link: "https://www.instagram.com/mkt.marinho/" },
