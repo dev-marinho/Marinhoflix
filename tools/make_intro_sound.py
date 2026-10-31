@@ -46,7 +46,7 @@ R[d + at(0.02):] += lp(mono, 400)[:-(d + at(0.02))] * 0.22
 out = np.stack([L, R], 1)
 out = hp(out.T, 28).T
 fl = at(0.6); out[-fl:] *= np.linspace(1, 0, fl)[:, None]
-out *= 0.7 / np.max(np.abs(out))   # pico em -3 dB
+out *= 0.25 / np.max(np.abs(out))   # bem baixinho e sutil (pico em -12 dB)
 with wave.open(sys.argv[1], 'wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
     w.writeframes((out * 32767).astype('<i2').tobytes())
