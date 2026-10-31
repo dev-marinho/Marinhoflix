@@ -1,64 +1,69 @@
-# Som da abertura: leve impacto no "M" + swoosh quando "ARINHO" se abre.
+# Som da abertura no estilo "ta-DUM" de streaming (original, livre de direitos):
+#   "ta"  leve (0.10 s, M surge)  ->  "DUM" forte (0.38 s, M assenta)
+#   acorde cheio que abre junto com "MARINHO" (1.05 s) e some com eco de sala.
 import numpy as np
 from scipy.signal import butter, sosfilt, fftconvolve
 import wave, sys
 
 SR = 48000
-DUR = 2.9
+DUR = 4.2
 N = int(SR * DUR)
-rng = np.random.default_rng(3)
+rng = np.random.default_rng(21)
 def at(s): return int(s * SR)
 def lp(x, f, o=2): return sosfilt(butter(o, f, 'low', fs=SR, output='sos'), x)
 def hp(x, f, o=2): return sosfilt(butter(o, f, 'high', fs=SR, output='sos'), x)
 def bp(x, lo, hi, o=2): return sosfilt(butter(o, [lo, hi], 'band', fs=SR, output='sos'), x)
 
-L = np.zeros(N); R = np.zeros(N)
+mono = np.zeros(N)
 
-# ---------- 1) Leve impacto (M aparece em 0.10 s) ----------
-T1 = 0.10
-n = at(0.6); t = np.arange(n) / SR
-f = 55 + 120 * np.exp(-t / 0.035)                       # pitch cai rápido
-body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.12)
-mid = bp(rng.standard_normal(n), 180, 1600) * np.exp(-t / 0.06) * 0.8
-body += np.sin(2 * np.pi * np.cumsum(f * 2.5) / SR) * np.exp(-t / 0.07) * 0.45
-click = hp(rng.standard_normal(n), 3000) * np.exp(-t / 0.008) * 0.35
-hit = (body * 0.9 + mid + click) * np.minimum(1, t / 0.002)
-s = at(T1); L[s:s + n] += hit; R[s:s + n] += hit
+def thump(start, f_hi, f_lo, decay, amp, body_amp, tone):
+    n = at(1.2); t = np.arange(n) / SR
+    f = f_lo + (f_hi - f_lo) * np.exp(-t / 0.03)
+    sub = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / decay)
+    # ressonância "de pele" (dá o caráter de tambor grave e abafado)
+    res = np.sin(2 * np.pi * tone * t + 0.4) * np.exp(-t / (decay * 0.6)) * 0.45
+    knock = bp(rng.standard_normal(n), 160, 1200) * np.exp(-t / 0.045) * body_amp
+    click = hp(rng.standard_normal(n), 2500) * np.exp(-t / 0.006) * 0.12
+    x = (sub + res) * amp + knock + click
+    x = np.tanh(x * 1.8) / 1.8 * np.minimum(1, t / 0.0015)
+    s = at(start); mono[s:s + n] += x[:N - s]
 
-# ---------- 2) Swoosh (letras abrindo: 1.05 s -> ~1.9 s) ----------
-T2, SW = 0.98, 0.95
-n = at(SW); t = np.arange(n) / SR; x = t / SW
-noise = rng.standard_normal(n)
-# filtro passa-banda com frequência subindo (SVF por amostra)
-fc = 500 * (9000 / 500) ** (x ** 1.3)
-q = 1.6
-out = np.zeros(n); low = band = 0.0
-for i in range(n):
-    g = 2 * np.sin(np.pi * min(fc[i], 18000) / SR)
-    high = noise[i] - low - band / q
-    band += g * high
-    low += g * band
-    out[i] = band
-env = np.sin(np.pi * np.clip(x, 0, 1)) ** 1.6 * (0.55 + 0.45 * x)   # cresce e some
-sw = out * env
-sw = hp(sw, 300) * 0.9
-pan = 0.5 + 0.45 * x                                     # vai do centro para a direita
-s = at(T2)
-L[s:s + n] += sw * np.cos(pan * np.pi / 2) * 1.4
-R[s:s + n] += sw * np.sin(pan * np.pi / 2) * 1.4
+thump(0.10, 150, 58, 0.16, 0.55, 0.9, 98)    # "ta"
+thump(0.38, 170, 46, 0.42, 1.00, 1.4, 82)    # "DUM"
 
-# ---------- reverb curto e claro (sala pequena) ----------
-irn = at(0.7); it = np.arange(irn) / SR
+# acorde que "floresce" (Fá maior com nona) — abre o filtro aos poucos
+T3 = 1.0
+n = N - at(T3); t = np.arange(n) / SR
+notes = [87.31, 130.81, 174.61, 220.0, 261.63, 392.0]   # F2 C3 F3 A3 C4 G4
+pad = np.zeros(n)
+for i, f in enumerate(notes):
+    for det in (-7, 0, 7):
+        fr = f * 2 ** (det / 1200)
+        ph = (fr * t + rng.uniform()) % 1
+        pad += (2 * ph - 1) * (1.0 if i < 3 else 0.7)
+# filtro que abre (efeito "florescer") por blocos
+out = np.zeros(n); blk = 512
+cut = 250 + 2600 * (1 - np.exp(-t / 0.55)) * np.exp(-np.maximum(0, t - 0.9) / 1.4)
+zi = None
+from scipy.signal import sosfilt_zi
+for i in range(0, n, blk):
+    sos = butter(2, max(120, min(cut[i], 9000)), 'low', fs=SR, output='sos')
+    if zi is None: zi = sosfilt_zi(sos) * 0
+    out[i:i + blk], zi = sosfilt(sos, pad[i:i + blk], zi=zi)
+env = np.minimum(1, t / 0.45) ** 1.5 * np.exp(-np.maximum(0, t - 0.6) / 0.9)
+mono[at(T3):] += out * env * 0.13
+
+# reverb de sala média (estéreo)
+irn = at(1.6); it = np.arange(irn) / SR
 def ir(seed):
-    r = np.random.default_rng(seed).standard_normal(irn) * np.exp(-it / 0.16)
-    r = lp(r, 7000); r[:at(0.008)] = 0
+    r = np.random.default_rng(seed).standard_normal(irn) * np.exp(-it / 0.32)
+    r = lp(r, 5000); r[:at(0.01)] = 0
     return r / np.sqrt(np.sum(r ** 2))
-L = L + fftconvolve(L, ir(1))[:N] * 0.18
-R = R + fftconvolve(R, ir(2))[:N] * 0.18
-
+L = mono + fftconvolve(mono, ir(5))[:N] * 0.32
+R = mono + fftconvolve(mono, ir(6))[:N] * 0.32
 out = np.stack([L, R], 1)
-out = hp(out.T, 30).T
-fl = at(0.25); out[-fl:] *= np.linspace(1, 0, fl)[:, None]
+out = hp(out.T, 28).T
+fl = at(0.4); out[-fl:] *= np.linspace(1, 0, fl)[:, None]
 out *= 0.89 / np.max(np.abs(out))
 with wave.open(sys.argv[1], 'wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
