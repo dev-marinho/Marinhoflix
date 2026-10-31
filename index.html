@@ -14,24 +14,14 @@
 </head>
 <body>
 
-  <!-- 1. Toque para entrar (libera o som da abertura no celular) -->
-  <section class="screen gate is-active" id="gate">
-    <button class="gate__btn" id="gate-btn" type="button">
-      <span class="gate__ring" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" /></svg>
-      </span>
-      <span class="gate__text">Toque para entrar</span>
-    </button>
-  </section>
-
-  <!-- 2. Abertura: "M" -> "MARINHO" -->
-  <section class="screen intro" id="intro" aria-hidden="true">
+  <!-- 1. Abertura: "M" -> "MARINHO" -->
+  <section class="screen intro is-active" id="intro" aria-label="Marinho">
     <div class="logo" id="intro-logo">
       <span class="logo__m">M</span><span class="logo__rest" id="logo-rest"></span>
     </div>
   </section>
 
-  <!-- 3. Qual o seu negócio? -->
+  <!-- 2. Qual o seu negócio? -->
   <section class="screen profiles" id="profiles" aria-label="Escolha o seu negócio">
     <div class="profiles__hero">
       <div class="profiles__bg" id="profiles-bg"></div>

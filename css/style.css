@@ -49,57 +49,7 @@ ul { list-style: none; }
 }
 
 /* ==========================================================
-   1. TOQUE PARA ENTRAR
-   ========================================================== */
-.gate { display: grid; place-items: center; background: #000; }
-
-.gate__btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 22px;
-  padding: 48px;
-}
-.gate__ring {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(0, 168, 255, 0.7);
-  box-shadow: 0 0 24px rgba(0, 168, 255, 0.25), inset 0 0 18px rgba(0, 168, 255, 0.15);
-  animation: breathe 2.4s ease-in-out infinite;
-}
-.gate__ring::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 50%;
-  border: 1.5px solid var(--blue);
-  animation: ripple 2.4s ease-out infinite;
-}
-.gate__ring svg { width: 28px; height: 28px; margin-left: 4px; fill: var(--blue); }
-.gate__text {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.gate__btn:active .gate__ring { transform: scale(0.94); }
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-@keyframes ripple {
-  0% { transform: scale(1); opacity: 0.7; }
-  100% { transform: scale(1.7); opacity: 0; }
-}
-
-/* ==========================================================
-   2. ABERTURA  —  "M"  ->  "MARINHO"
+   1. ABERTURA  —  "M"  ->  "MARINHO"
    ========================================================== */
 .intro { display: grid; place-items: center; background: #000; overflow: hidden; }
 
@@ -171,7 +121,7 @@ ul { list-style: none; }
 .intro.reduced .logo__rest > span { animation: none; opacity: 1; transform: none; max-width: none; }
 
 /* ==========================================================
-   3. QUAL O SEU NEGÓCIO?
+   2. QUAL O SEU NEGÓCIO?
    ========================================================== */
 .profiles {
   background: #000;

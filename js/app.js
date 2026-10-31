@@ -61,9 +61,9 @@
   }
 
   function startIntro() {
-    // o som precisa começar no mesmo instante do toque (regra dos navegadores de celular)
+    // Tenta tocar o som. Se o navegador bloquear som automático
+    // (padrão em celulares), a animação segue normalmente em silêncio.
     playIntroAudio();
-    show("intro");
     measureLogo();
 
     if (reduceMotion) {
@@ -142,10 +142,11 @@
   buildProfilesHero();
   buildProfilesGrid();
 
-  // carrega a fonte da logo enquanto a pessoa ainda está na tela "Toque para entrar"
+  // Começa a abertura assim que a fonte da logo carrega (no máx. 1,2 s de tela preta)
+  let started = false;
+  const go = () => { if (!started) { started = true; startIntro(); } };
   if (document.fonts && document.fonts.load) {
-    document.fonts.load('400 1em "Bebas Neue"').then(measureLogo).catch(() => {});
+    document.fonts.load('400 1em "Bebas Neue"').then(go, go);
   }
-
-  $("#gate-btn").addEventListener("click", startIntro, { once: true });
+  setTimeout(go, 1200);
 })();
