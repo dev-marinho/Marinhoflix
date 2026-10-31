@@ -140,10 +140,10 @@ window.MARINHO = {
       cores: ["#1737c9", "#5f80ff"],
       whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero um orçamento de vídeo institucional para a minha empresa.",
       destaque: {
-        titulo: "Quem Refaz Essa Conta?",
-        descricao: "João Vitor, contador, explica regime tributário de um jeito direto e sem complicação.",
-        video: "assets/videos/institucionais/destaque.mp4",
-        capa: "assets/videos/institucionais/destaque-capa.jpg",
+        titulo: "Como Funciona o Presbyond",
+        descricao: "Dr. João Vitor Terra, cirurgião oftalmologista, explica a cirurgia a laser para a vista cansada.",
+        video: "assets/videos/institucionais/destaque.mp4?v=202610311529",
+        capa: "assets/videos/institucionais/destaque-capa.jpg?v=202610311529",
       },
       top5: [
         { titulo: "Quem somos", ...EX(2) },
