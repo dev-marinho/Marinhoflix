@@ -143,6 +143,11 @@ window.MARINHO = {
           capa: "assets/videos/cirurgias/post2-capa.jpg?v=202610311419",
           link: "https://www.instagram.com/reel/DclecvpOk2I/",
         },
+        {
+          cliente: "@dr.augustopedretti",
+          capa: "assets/videos/cirurgias/post3-capa.jpg?v=202610311420",
+          link: "https://www.instagram.com/reel/DcbVA4Bu_V7/",
+        },
       ],
     },
 
