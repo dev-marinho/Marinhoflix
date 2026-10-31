@@ -132,9 +132,9 @@ ul { list-style: none; }
 
 .profiles__hero {
   position: relative;
-  height: 62vh;
-  height: 62svh;
-  min-height: 400px;
+  height: 56vh;
+  height: 56svh;
+  min-height: 380px;
   max-height: 760px;
 }
 
@@ -286,9 +286,64 @@ ul { list-style: none; }
   box-shadow: 0 0 0 4px rgba(0, 168, 255, 0.35), 0 0 34px rgba(0, 168, 255, 0.6);
 }
 
+/* "Não achou o seu perfil?" */
+.profiles__cta {
+  max-width: 360px;
+  margin: 26px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+.profiles__cta-text {
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.profiles__cta-text span,
+.profiles__cta-text strong { display: block; }
+.profiles__cta-text strong {
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.profiles__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--blue);
+  background: rgba(0, 168, 255, 0.1);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 22px rgba(0, 168, 255, 0.25), inset 0 0 14px rgba(0, 168, 255, 0.12);
+  transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+}
+.profiles__cta-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.profiles__cta-btn svg .fill { fill: var(--blue); stroke: none; }
+.profiles__cta-btn:hover { background: rgba(0, 168, 255, 0.2); box-shadow: 0 0 30px rgba(0, 168, 255, 0.45); }
+.profiles__cta-btn:active { transform: scale(0.96); }
+
 /* entrada suave da tela */
 .profiles.is-entering .profiles__feature { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
 .profiles.is-entering .profiles__question { animation: fadeUp 0.7s ease 0.35s both; }
+.profiles.is-entering .profiles__cta { animation: fadeUp 0.7s ease 0.75s both; }
 .profiles.is-entering .profiles__grid li {
   animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: calc(0.45s + var(--i) * 0.07s);
@@ -321,7 +376,7 @@ ul { list-style: none; }
   }
   .profiles__shade { z-index: 1; }
   .profiles__feature { z-index: 2; }
-  .profiles__hero { height: 64vh; }
+  .profiles__hero { height: 54vh; }
   .profiles__feature { bottom: 80px; }
   .profiles__panel {
     max-width: 880px;

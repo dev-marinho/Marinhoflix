@@ -30,6 +30,12 @@ window.MARINHO = {
     },
     subtitulo: "Captação e edição mobile para marcas que querem ser vistas.",
     pergunta: "Escolha o seu perfil",
+    contato: {
+      chamada: "Não achou o seu perfil aqui?",
+      destaque: "Então venha ser o primeiro!",
+      botao: "Entre em contato comigo",
+      whatsappMsg: "Olá, Marinho! Vi seu portfólio e não encontrei o meu segmento. Quero conversar sobre um vídeo para o meu negócio.",
+    },
   },
 
   /* Página "Conheça meu trabalho" */

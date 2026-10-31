@@ -105,6 +105,14 @@
 
     $("#feature-sub").textContent = data.telaPerfis.subtitulo;
     if (data.telaPerfis.pergunta) $("#profiles-question").textContent = data.telaPerfis.pergunta;
+
+    const c = data.telaPerfis.contato;
+    if (c) {
+      $("#cta-chamada").textContent = c.chamada;
+      $("#cta-destaque").textContent = c.destaque;
+      $("#cta-label").textContent = c.botao;
+      $("#cta-btn").href = `https://wa.me/${data.contato.whatsapp}?text=${encodeURIComponent(c.whatsappMsg)}`;
+    }
   }
 
   function buildProfilesGrid() {

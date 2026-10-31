@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=202610311647" />
+  <link rel="stylesheet" href="css/style.css?v=202610311649" />
 </head>
 <body>
 
@@ -36,16 +36,28 @@
     <div class="profiles__panel">
       <h2 class="profiles__question" id="profiles-question">Escolha o seu perfil</h2>
       <ul class="profiles__grid" id="profiles-grid"></ul>
+
+      <!-- Não achou o seu perfil? -->
+      <div class="profiles__cta">
+        <p class="profiles__cta-text">
+          <span id="cta-chamada"></span>
+          <strong id="cta-destaque"></strong>
+        </p>
+        <a class="profiles__cta-btn" id="cta-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4A8 8 0 1 1 20 11.6z"/><path d="M9.2 9.3c.3 1.9 1.6 3.6 3.6 4.6l1.1-1 1.6.7v1.3c-3.6.4-7.2-3.2-6.8-6.8h1.3l.7 1.6z" class="fill"/></svg>
+          <span id="cta-label"></span>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Som da abertura (arquivo próprio, livre de direitos) -->
-  <audio id="intro-audio" src="assets/audio/intro.mp3?v=202610311647" preload="auto" playsinline></audio>
+  <audio id="intro-audio" src="assets/audio/intro.mp3?v=202610311649" preload="auto" playsinline></audio>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/data.js?v=202610311647"></script>
-  <script src="js/icons.js?v=202610311647"></script>
-  <script src="js/app.js?v=202610311647"></script>
+  <script src="js/data.js?v=202610311649"></script>
+  <script src="js/icons.js?v=202610311649"></script>
+  <script src="js/app.js?v=202610311649"></script>
 </body>
 </html>
