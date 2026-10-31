@@ -132,9 +132,9 @@ ul { list-style: none; }
 
 .profiles__hero {
   position: relative;
-  height: 52vh;
-  height: 52svh;
-  min-height: 360px;
+  height: 62vh;
+  height: 62svh;
+  min-height: 400px;
   max-height: 760px;
 }
 
@@ -211,8 +211,8 @@ ul { list-style: none; }
   padding: 34px 18px calc(48px + var(--safe-bottom));
   background: var(--panel);
   border-radius: 50% 50% 0 0 / 38px 38px 0 0;
-  min-height: 50vh;
-  min-height: 50svh;
+  min-height: calc(38vh + 40px);
+  min-height: calc(38svh + 40px);
 }
 .profiles__question {
   text-align: center;
@@ -226,11 +226,11 @@ ul { list-style: none; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px 26px;
-  max-width: 300px; /* 2 por linha no celular (grade 2x2) */
+  gap: 20px 16px;
+  max-width: 400px; /* 3 perfis lado a lado */
   margin: 0 auto;
 }
-.profiles__grid li { width: min(30vw, 120px); }
+.profiles__grid li { width: min(26vw, 116px); }
 
 .profile {
   display: flex;

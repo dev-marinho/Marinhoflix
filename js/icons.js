@@ -37,17 +37,5 @@
       <path d="M40 67 L60 67 L50 92 Z" fill="${W}"/>
       <path d="M46 69 L54 69 L52.5 75 L47.5 75Z" fill="#0b1f5c"/>
       <path d="M47.5 75 L52.5 75 L55.5 91 L50 99 L44.5 91Z" fill="#0b1f5c"/>`,
-
-    /* Criativo de agência: boina, piscadinha e brilho */
-    agencias: `
-      <g transform="rotate(-8 50 24)">
-        <path d="M20 30 C22 14 46 8 66 12 C82 15 87 24 80 30 Z" fill="${W}"/>
-        <rect x="20" y="27" width="60" height="7" rx="3.5" fill="${W}"/>
-        <path d="M50 11 L52 4" stroke="${W}" stroke-width="3.5" stroke-linecap="round"/>
-      </g>
-      ${eye(35, 54)}
-      <path d="M58 55 Q65 48 72 55" fill="none" stroke="${W}" stroke-width="5" stroke-linecap="round"/>
-      ${smile("M33 69 Q50 85 67 69")}
-      <path d="M86 62 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5z" fill="${W}" opacity=".9"/>`,
   };
 })();
