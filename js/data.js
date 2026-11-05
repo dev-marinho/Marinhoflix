@@ -115,6 +115,7 @@ window.MARINHO = {
         { titulo: "Dr. Augusto Pedretti", video: "assets/videos/cirurgias/top3.mp4?v=202611050116", capa: "assets/videos/cirurgias/top3-capa.jpg?v=202611050116" },
         { titulo: "Patrícia Portilho", video: "assets/videos/cirurgias/top4.mp4?v=202611050116", capa: "assets/videos/cirurgias/top4-capa.jpg?v=202611050116" },
         { titulo: "Antes e depois", video: "assets/videos/cirurgias/top5.mp4", capa: "assets/videos/cirurgias/top5-capa.jpg" },
+        { titulo: "Equipe em ação", video: "assets/videos/cirurgias/top6.mp4", capa: "assets/videos/cirurgias/top6-capa.jpg" },
       ],
       aprovados: [
         {

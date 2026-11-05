@@ -26,9 +26,10 @@
 
   /* ---------- Top 5 ---------- */
   function renderTop5() {
-    $("#top5-title").textContent = `Top 5 em ${current.nome}`;
-    $("#top5").innerHTML = current.top5
-      .slice(0, 5)
+    // até 10 vídeos; o título acompanha a quantidade (Top 5, Top 6…)
+    const lista = current.top5.slice(0, 10);
+    $("#top5-title").textContent = `Top ${lista.length} em ${current.nome}`;
+    $("#top5").innerHTML = lista
       .map(
         (v, i) => `
         <div class="top-item">
