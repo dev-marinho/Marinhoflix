@@ -111,9 +111,9 @@ window.MARINHO = {
       },
       top5: [
         { titulo: "Mamoplastia de aumento", video: "assets/videos/cirurgias/destaque.mp4", capa: "assets/videos/cirurgias/top1-capa.jpg" },
-        { titulo: "Centro cirúrgico", video: "assets/videos/cirurgias/top2.mp4", capa: "assets/videos/cirurgias/top2-capa.jpg" },
-        { titulo: "Pós-operatório imediato", video: "assets/videos/cirurgias/top3.mp4", capa: "assets/videos/cirurgias/top3-capa.jpg" },
-        { titulo: "Cirurgião e instrumentadora", video: "assets/videos/cirurgias/top4.mp4", capa: "assets/videos/cirurgias/top4-capa.jpg" },
+        { titulo: "Dra. Mariana Mury", video: "assets/videos/cirurgias/top2.mp4?v=202611050116", capa: "assets/videos/cirurgias/top2-capa.jpg?v=202611050116" },
+        { titulo: "Dr. Augusto Pedretti", video: "assets/videos/cirurgias/top3.mp4?v=202611050116", capa: "assets/videos/cirurgias/top3-capa.jpg?v=202611050116" },
+        { titulo: "Patrícia Portilho", video: "assets/videos/cirurgias/top4.mp4?v=202611050116", capa: "assets/videos/cirurgias/top4-capa.jpg?v=202611050116" },
         { titulo: "Antes e depois", video: "assets/videos/cirurgias/top5.mp4", capa: "assets/videos/cirurgias/top5-capa.jpg" },
       ],
       aprovados: [
