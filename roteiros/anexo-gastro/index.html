@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Roteiros | Anexo Gastrô · Marinho</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/brand/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue: #00a8ff; --blue-light: #6fd6ff; --blue-dark: #006fd1;
+      --bg: #000; --card: #111418; --card-2: #181c22; --line: rgba(255,255,255,.09);
+      --text: #fff; --muted: #9aa4b2; --ok: #2fd27a;
+      --display: "Bebas Neue", Impact, sans-serif; --font: "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+    /* topo */
+    .top { position: sticky; top: 0; z-index: 20; background: rgba(0,0,0,.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .logo { font-family: var(--display); font-size: 30px; line-height: 1; padding-top: 3px; letter-spacing: .02em;
+      background: linear-gradient(180deg, var(--blue-light), var(--blue) 45%, var(--blue-dark)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 0 16px 10px; max-width: 880px; margin: 0 auto; }
+    .chips::-webkit-scrollbar { display: none; }
+    .chips a { flex: none; font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.2); background: rgba(40,40,40,.5); }
+
+    /* capa */
+    .hero { padding: 40px 0 28px; text-align: center; background: radial-gradient(80% 60% at 50% 0%, rgba(0,168,255,.22), transparent 70%); }
+    .kicker { display: inline-block; padding: 4px 10px; border-radius: 4px; background: var(--blue); color: #00131f; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(52px, 15vw, 96px); line-height: .9; margin: 14px 0 8px; }
+    .hero p { color: #cfd6df; max-width: 560px; margin: 0 auto; }
+    .meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+    .meta span { font-size: 13px; padding: 6px 12px; border-radius: 99px; background: var(--card-2); border: 1px solid var(--line); color: #d8dee6; }
+    .meta b { color: #fff; }
+
+    section { padding: 26px 0; }
+    h2 { font-family: var(--display); font-weight: 400; font-size: 32px; letter-spacing: .02em; line-height: 1; margin-bottom: 14px; }
+    .sub { color: var(--muted); font-size: 14px; margin: -6px 0 16px; }
+
+    /* resumo */
+    .summary { display: grid; gap: 10px; }
+    .sum { display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); }
+    .sum .n { font-family: var(--display); font-size: 40px; line-height: .8; color: #000; -webkit-text-stroke: 2px rgba(255,255,255,.9); text-align: center; }
+    .sum b { display: block; font-size: 15px; }
+    .sum small { color: var(--muted); font-size: 13px; }
+    .badge { font-family: var(--display); font-size: 20px; color: var(--blue); white-space: nowrap; }
+    .total { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-radius: 12px; border: 1px dashed rgba(0,168,255,.5); color: var(--blue-light); font-weight: 600; }
+    .total .badge { font-size: 26px; }
+
+    /* estilo */
+    .rules { display: grid; gap: 8px; }
+    .rules li { list-style: none; display: flex; gap: 10px; padding: 10px 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--line); font-size: 14px; }
+    .rules li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 7px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); }
+
+    /* carrossel de imagens */
+    .strip { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+    .strip::-webkit-scrollbar { display: none; }
+    .strip figure { flex: none; width: 118px; scroll-snap-align: start; }
+    .strip img { width: 118px; aspect-ratio: 9/16; object-fit: cover; border-radius: 8px; background: #111; }
+    .strip figcaption { font-size: 11px; color: var(--muted); margin-top: 5px; line-height: 1.3; }
+    .tag { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; margin-bottom: 8px; }
+    .tag--ref { background: rgba(255,255,255,.1); color: #d9dee5; }
+    .tag--mar { background: rgba(0,168,255,.18); color: var(--blue-light); }
+    .refnote { font-size: 13px; color: var(--muted); margin-top: 8px; }
+    .refnote b { color: #e6ebf1; }
+
+    /* vídeo */
+    .video { border-radius: 16px; background: var(--card); border: 1px solid var(--line); overflow: hidden; scroll-margin-top: 110px; }
+    .video + .video { margin-top: 18px; }
+    .vhead { display: flex; align-items: flex-end; gap: 12px; padding: 18px 16px 14px; background: linear-gradient(180deg, rgba(0,168,255,.14), transparent); }
+    .vnum { font-family: var(--font); font-weight: 800; font-size: 92px; line-height: .72; letter-spacing: -.06em; position: relative; color: #000; -webkit-text-stroke: 5px rgba(255,255,255,.92); }
+    .vnum::after { content: attr(data-n); position: absolute; left: 0; top: 0; color: #111418; -webkit-text-stroke: 0; }
+    .vtitle { flex: 1; }
+    .vtitle h3 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: .95; }
+    .vtitle .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .pill { font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 99px; background: rgba(255,255,255,.08); color: #dfe5ec; }
+    .pill--blue { background: var(--blue); color: #00131f; }
+    .vbody { padding: 4px 16px 18px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .vbody > * { min-width: 0; }
+    .idea { padding: 12px 14px; border-left: 3px solid var(--blue); background: rgba(0,168,255,.07); border-radius: 0 10px 10px 0; font-size: 15px; }
+    .idea b { color: var(--blue-light); }
+    .label { font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+    /* linha do tempo */
+    .timeline { display: grid; gap: 8px; }
+    .shot { display: grid; grid-template-columns: 74px 1fr; gap: 12px; padding: 12px; border-radius: 10px; background: var(--card-2); border: 1px solid var(--line); }
+    .shot .when b { display: block; font-size: 13px; color: var(--blue-light); }
+    .shot .when span { font-family: var(--display); font-size: 22px; line-height: 1; }
+    .shot .what { font-size: 14px; color: #dde3ea; }
+    .shot .say { display: block; margin-bottom: 6px; font-size: 15px; color: #fff; font-weight: 600; }
+    .shot .say::before { content: "🎙 "; }
+    .shot--hook { border-color: rgba(0,168,255,.45); box-shadow: 0 0 0 1px rgba(0,168,255,.15) inset; }
+
+    .onscreen { display: flex; flex-wrap: wrap; gap: 8px; }
+    .onscreen span { font-family: var(--display); font-size: 22px; letter-spacing: .02em; padding: 6px 12px; border-radius: 8px; background: #000; border: 1px solid rgba(255,255,255,.18); }
+    .note { font-size: 13px; color: #c3cad3; padding: 10px 12px; border-radius: 10px; background: rgba(255,200,0,.06); border: 1px solid rgba(255,200,0,.2); }
+    .note b { color: #ffd76a; }
+
+    /* aprovação */
+    .approve { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 12px; border-radius: 999px; font-weight: 700; font-size: 15px; text-align: center; transition: transform .15s; }
+    .btn:active { transform: scale(.97); }
+    .btn svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .btn--ok { background: var(--blue); color: #00131f; box-shadow: 0 0 22px rgba(0,168,255,.35); }
+    .btn--edit { border: 1.5px solid rgba(255,255,255,.3); color: #fff; }
+
+    /* checklist */
+    .check { display: grid; gap: 8px; }
+    .check label { display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--line); font-size: 14px; cursor: pointer; }
+    .check input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--blue); flex: none; }
+    .check b { color: #fff; }
+    .open { counter-reset: q; display: grid; gap: 8px; }
+    .open li { list-style: none; display: flex; gap: 12px; padding: 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--line); font-size: 14px; }
+    .open li::before { counter-increment: q; content: counter(q); font-family: var(--display); font-size: 26px; line-height: .9; color: var(--blue); }
+
+    /* final */
+    .final { margin: 10px 0 40px; padding: 26px 18px; border-radius: 18px; text-align: center; background: radial-gradient(120% 90% at 50% 0%, rgba(0,168,255,.28), transparent 65%), #0d1117; border: 1px solid rgba(0,168,255,.28); }
+    .final h2 { font-size: clamp(34px, 9vw, 48px); margin-bottom: 8px; }
+    .final p { color: #cfd6df; margin-bottom: 18px; font-size: 15px; }
+    .final .btn { max-width: 360px; margin: 0 auto; font-size: 17px; padding: 16px 20px; }
+    .final .btn + .btn { margin-top: 10px; }
+    footer { text-align: center; color: var(--muted); font-size: 12px; padding: 0 16px 40px; }
+    footer a { color: var(--blue-light); }
+
+    @media (min-width: 760px) {
+      .strip figure, .strip img { width: 140px; }
+      .shot { grid-template-columns: 96px 1fr; }
+      .vhead { padding: 22px 22px 16px; }
+      .vbody { padding: 4px 22px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="../../index.html#perfis">MARINHO</a>
+      <span class="kicker">Para aprovação</span>
+    </div>
+    <nav class="chips" aria-label="Seções">
+      <a href="#resumo">Resumo</a>
+      <a href="#estilo">Estilo</a>
+      <a href="#v1">1 · Natal</a>
+      <a href="#v2">2 · Pizzas</a>
+      <a href="#v3">3 · Tomahawk chef</a>
+      <a href="#v4">4 · Tomahawk experiência</a>
+      <a href="#captacao">Captação</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <span class="kicker">Roteiros · Reels 9:16</span>
+      <h1>Anexo Gastrô</h1>
+      <p>Quatro vídeos para o pacote de 1min20s. Cada roteiro tem uma ideia só e um gancho nos primeiros 2 a 3 segundos.</p>
+      <div class="meta">
+        <span>Cliente <b>@anexo.gastro</b></span>
+        <span>Chef <b>Yan Macedo</b></span>
+        <span>Produção <b>@mkt.marinho</b></span>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <!-- RESUMO -->
+    <section id="resumo">
+      <h2>Resumo do pacote</h2>
+      <div class="summary">
+        <a class="sum" href="#v1"><span class="n">1</span><div><b>Decoração natalina</b><small>Atmosfera, sem fala, só trilha e texto na tela</small></div><span class="badge">15s</span></a>
+        <a class="sum" href="#v2"><span class="n">2</span><div><b>Pizzas do Anexo, com o chef</b><small>Por que a borda da pizza artesanal parece queimada e não é</small></div><span class="badge">20s</span></a>
+        <a class="sum" href="#v3"><span class="n">3</span><div><b>Tomahawk, chef explicando</b><small>Fala do chef, em blocos</small></div><span class="badge">até 30s</span></a>
+        <a class="sum" href="#v4"><span class="n">4</span><div><b>Tomahawk, a experiência</b><small>Do prato chegando à mesa até o primeiro corte</small></div><span class="badge">15s</span></a>
+        <div class="total"><span>Total do pacote</span><span class="badge">80s</span></div>
+      </div>
+    </section>
+
+    <!-- ESTILO -->
+    <section id="estilo">
+      <h2>Estilo da produção</h2>
+      <ul class="rules">
+        <li>Processo em close, de cima ou na bancada, com as mãos do chef.</li>
+        <li>Texto curto na tela, que faz parte da narrativa.</li>
+        <li>Revelação de cor: a cena começa em preto e branco e a cor entra.</li>
+        <li>Um corte a cada 2 ou 3 segundos, com planos de detalhe longos o bastante para ver a comida.</li>
+        <li>Fechamento com tela preta e o @ do restaurante.</li>
+      </ul>
+
+      <div style="margin-top:18px">
+        <span class="tag tag--mar">Vídeos que já fizemos para o Anexo</span>
+        <div class="strip">
+          <figure><img src="img/estilo_pappardelle_1_prato-vazio.jpg" alt=""><figcaption>Pappardelle: do prato vazio…</figcaption></figure>
+          <figure><img src="img/estilo_pappardelle_2_processo.jpg" alt=""><figcaption>…ao processo</figcaption></figure>
+          <figure><img src="img/estilo_pappardelle_3_final.jpg" alt=""><figcaption>…e ao prato pronto</figcaption></figure>
+          <figure><img src="img/estilo_ravioli_1_texto-palavra.jpg" alt=""><figcaption>Palavras surgindo na tela</figcaption></figure>
+          <figure><img src="img/estilo_ravioli_2_massa.jpg" alt=""><figcaption>Close da massa</figcaption></figure>
+          <figure><img src="img/estilo_drink-revelacao_1_pb.jpg" alt=""><figcaption>Revelação de cor: P&amp;B…</figcaption></figure>
+          <figure><img src="img/estilo_drink-revelacao_2_cor.jpg" alt=""><figcaption>…e a cor entra</figcaption></figure>
+          <figure><img src="img/estilo_drink-brisa_2_preparo.jpg" alt=""><figcaption>Preparo com o neon da casa</figcaption></figure>
+          <figure><img src="img/estilo_historia_1_dona-fala.jpg" alt=""><figcaption>Fala da dona para a câmera</figcaption></figure>
+          <figure><img src="img/estilo_historia_2_chef-fala.jpg" alt=""><figcaption>Fala do chef, legenda palavra a palavra</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- VÍDEO 1 -->
+    <section>
+      <article class="video" id="v1">
+        <div class="vhead">
+          <span class="vnum" data-n="1">1</span>
+          <div class="vtitle">
+            <h3>Decoração natalina</h3>
+            <div class="pills"><span class="pill pill--blue">15s</span><span class="pill">Sem fala</span><span class="pill">Trilha + texto</span></div>
+          </div>
+        </div>
+        <div class="vbody">
+          <p class="idea"><b>Ideia única:</b> o restaurante é o presente. Só luz, detalhe e movimento. O vídeo é só da decoração, sem promoção.</p>
+
+          <div>
+            <p class="label">Planos</p>
+            <div class="timeline">
+              <div class="shot shot--hook"><div class="when"><b>Gancho</b><span>0–2s</span></div><p class="what">Decoração em preto e branco, e a cor entra quando as luzes acendem.</p></div>
+              <div class="shot"><div class="when"><b>Plano 1</b><span>2–5s</span></div><p class="what">Movimento de câmera avançando pela entrada decorada.</p></div>
+              <div class="shot"><div class="when"><b>Plano 2</b><span>5–8s</span></div><p class="what">Detalhe da mesa de Natal: taças, velas e guardanapo, com travelling lateral.</p></div>
+              <div class="shot"><div class="when"><b>Plano 3</b><span>8–11s</span></div><p class="what">Árvore ou guirlanda em plano aberto, com pessoas desfocadas ao fundo.</p></div>
+              <div class="shot"><div class="when"><b>Final</b><span>11–15s</span></div><p class="what">Plano geral do salão com luzes, fechando com o nome do restaurante.</p></div>
+            </div>
+          </div>
+
+          <div><p class="label">Texto na tela</p><div class="onscreen"><span>O Natal chegou ao Anexo.</span></div></div>
+          <p class="note"><b>Quando gravar:</b> no fim da tarde, com as luzes ligadas, antes de abrir.</p>
+
+          <div>
+            <span class="tag tag--ref">Referência enviada pela dona</span>
+            <div class="strip">
+              <figure><img src="img/natal-ref_1_mesa-pb.jpg" alt=""><figcaption>Mesa em preto e branco</figcaption></figure>
+              <figure><img src="img/natal-ref_2_cor-entra.jpg" alt=""><figcaption>A cor entra no plano aberto</figcaption></figure>
+              <figure><img src="img/natal-ref_3_plano-aberto.jpg" alt=""><figcaption>Plano geral com luzes</figcaption></figure>
+              <figure><img src="img/natal-ref_4_detalhe-cardapio.jpg" alt=""><figcaption>Detalhe na mesa</figcaption></figure>
+            </div>
+            <p class="refnote"><b>O que vamos aproveitar:</b> começar em preto e branco e deixar a cor entrar com as luzes; detalhes de mesa e planos abertos do ambiente.</p>
+          </div>
+
+          <div class="approve" data-video="Vídeo 1 (Decoração natalina)"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- VÍDEO 2 -->
+    <section>
+      <article class="video" id="v2">
+        <div class="vhead">
+          <span class="vnum" data-n="2">2</span>
+          <div class="vtitle">
+            <h3>As pizzas do Anexo, com o chef</h3>
+            <div class="pills"><span class="pill pill--blue">20s</span><span class="pill">Fala do chef</span></div>
+          </div>
+        </div>
+        <div class="vbody">
+          <p class="idea"><b>Ideia única:</b> o chef explica por que a borda da pizza artesanal parece queimada e não é. Sem sabor específico: a variação aparece no final, com mais de uma pizza.</p>
+          <p class="note"><b>As falas são sugestão:</b> o chef confirma o conteúdo e reescreve com as palavras dele.</p>
+
+          <div>
+            <p class="label">Planos</p>
+            <div class="timeline">
+              <div class="shot shot--hook"><div class="when"><b>Gancho</b><span>0–3s</span></div><p class="what"><span class="say">“Essa borda parece queimada, né? Mas não é.”</span>Chef segurando uma fatia, mostrando a borda escura em close.</p></div>
+              <div class="shot"><div class="when"><b>Plano 1</b><span>3–9s</span></div><p class="what"><span class="say">“É a fermentação longa da massa e o forno bem quente.”</span>Montagem vista de cima e pizza entrando no forno, com a voz do chef por cima.</p></div>
+              <div class="shot"><div class="when"><b>Plano 2</b><span>9–14s</span></div><p class="what"><span class="say">“O açúcar da massa caramelizou, e isso dá sabor, não amargor.”</span>Close das manchas escuras da borda, em câmera lenta.</p></div>
+              <div class="shot"><div class="when"><b>Plano 3</b><span>14–17s</span></div><p class="what"><em>(sem fala) · opcional</em><br>Ao lado de uma fatia realmente queimada, para mostrar a diferença.</p></div>
+              <div class="shot"><div class="when"><b>Final</b><span>17–20s</span></div><p class="what"><span class="say">“Vem provar no Anexo.”</span>Duas ou três pizzas diferentes em sequência rápida, fechando na fatia sendo puxada.</p></div>
+            </div>
+          </div>
+
+          <p class="note"><b>Antes de gravar:</b> confirmar com o chef a explicação (fermentação, temperatura do forno e açúcar caramelizado). O plano 3 só entra se der para fazer uma pizza queimada de propósito.</p>
+
+          <div>
+            <span class="tag tag--ref">Referências de linguagem</span>
+            <div class="strip">
+              <figure><img src="img/pizza-chef_1_borda-na-mao.jpg" alt=""><figcaption>Gancho: borda escura em close</figcaption></figure>
+              <figure><img src="img/pizza-chef_2_olhando-camera.jpg" alt=""><figcaption>Chef explicando para a câmera</figcaption></figure>
+              <figure><img src="img/pizza-chef_4_comparacao-queimada.jpg" alt=""><figcaption>Fatia boa x fatia queimada</figcaption></figure>
+              <figure><img src="img/pizza-chef_3_forno.jpg" alt=""><figcaption>Pizza pronta no final</figcaption></figure>
+              <figure><img src="img/pizza-cima_3_montagem.jpg" alt=""><figcaption>Montagem vista de cima</figcaption></figure>
+              <figure><img src="img/pizza-cima_4_pronta.jpg" alt=""><figcaption>Do preparo ao resultado</figcaption></figure>
+            </div>
+            <p class="refnote"><b>O que vamos aproveitar:</b> o chef olhando para a câmera no gancho, a borda em close e a comparação com a fatia queimada. Do vídeo de cima, o plano de montagem das mãos.</p>
+          </div>
+
+          <div class="approve" data-video="Vídeo 2 (Pizzas com o chef)"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- VÍDEO 3 -->
+    <section>
+      <article class="video" id="v3">
+        <div class="vhead">
+          <span class="vnum" data-n="3">3</span>
+          <div class="vtitle">
+            <h3>Tomahawk, chef explicando</h3>
+            <div class="pills"><span class="pill pill--blue">até 30s</span><span class="pill">3 blocos de fala</span></div>
+          </div>
+        </div>
+        <div class="vbody">
+          <p class="idea"><b>Formato:</b> o chef fala em 3 blocos curtos de uns 10s, olhando para a câmera ou para o prato. Acompanhamentos conforme o post oficial: polenta crocante, creme de parmesão, cebola caramelizada, alho-poró e demi-glace.</p>
+
+          <div>
+            <p class="label">Blocos</p>
+            <div class="timeline">
+              <div class="shot shot--hook"><div class="when"><b>Gancho</b><span>0–4s</span></div><p class="what"><span class="say">“Esse é o Tomahawk, a estrela de novembro aqui no Anexo.”</span>Corte em destaque, com o osso, plano médio, chef ao lado.</p></div>
+              <div class="shot"><div class="when"><b>1 · O corte</b><span>4–14s</span></div><p class="what"><span class="say">“É um corte com osso longo, bem suculento, que a gente [técnica de preparo e ponto].”</span>Close do osso e da carne, câmera subindo.</p></div>
+              <div class="shot"><div class="when"><b>2 · Acompanha</b><span>14–24s</span></div><p class="what"><span class="say">“Vem com polenta crocante, creme de parmesão, cebola caramelizada, alho-poró e demi-glace.”</span>Cada acompanhamento em um plano curto de detalhe, na ordem da fala.</p></div>
+              <div class="shot"><div class="when"><b>Final</b><span>24–30s</span></div><p class="what"><span class="say">“Uma combinação intensa, cheia de personalidade. Vem experimentar no Anexo.”</span>Chef fatiando, plano médio, e fechamento no prato.</p></div>
+            </div>
+          </div>
+
+          <p class="note"><b>[Entre colchetes]:</b> será perguntado ao chef na hora da gravação. Cada bloco será gravado duas vezes; se passar de 30s, o bloco 2 fica só com os três acompanhamentos principais.</p>
+
+          <div>
+            <span class="tag tag--ref">Referências de linguagem</span>
+            <div class="strip">
+              <figure><img src="img/prato-passado-presente-futuro_1_prato-vazio.jpg" alt=""><figcaption>Prato vazio: “passado”</figcaption></figure>
+              <figure><img src="img/prato-passado-presente-futuro_2_presente.jpg" alt=""><figcaption>Prato servido: “presente”</figcaption></figure>
+              <figure><img src="img/prato-burger-texto_1_gancho-texto.jpg" alt=""><figcaption>Texto grande no topo</figcaption></figure>
+              <figure><img src="img/prato-burger-texto_3_texto-final.jpg" alt=""><figcaption>Frase mudando sobre o prato</figcaption></figure>
+            </div>
+            <p class="refnote"><b>O que vamos aproveitar:</b> palavras curtas na tela que contam a história do prato e um plano forte do corte.</p>
+          </div>
+
+          <div class="approve" data-video="Vídeo 3 (Tomahawk, chef explicando)"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- VÍDEO 4 -->
+    <section>
+      <article class="video" id="v4">
+        <div class="vhead">
+          <span class="vnum" data-n="4">4</span>
+          <div class="vtitle">
+            <h3>Tomahawk, a experiência</h3>
+            <div class="pills"><span class="pill pill--blue">15s</span><span class="pill">Sem fala</span><span class="pill">Som da faca</span></div>
+          </div>
+        </div>
+        <div class="vbody">
+          <p class="idea"><b>Ideia única:</b> o momento do corte e do prato completo na mesa. Sem fala, com o som da faca e da carne.</p>
+
+          <div>
+            <p class="label">Planos</p>
+            <div class="timeline">
+              <div class="shot shot--hook"><div class="when"><b>Gancho</b><span>0–2s</span></div><p class="what">Close da faca entrando na carne, com o suco aparecendo.</p></div>
+              <div class="shot"><div class="when"><b>Plano 1</b><span>2–6s</span></div><p class="what">Prato chegando à mesa, com o osso em destaque.</p></div>
+              <div class="shot"><div class="when"><b>Plano 2</b><span>6–10s</span></div><p class="what">Acompanhamentos em detalhe: polenta crocante, creme de parmesão e demi-glace sendo servido.</p></div>
+              <div class="shot"><div class="when"><b>Plano 3</b><span>10–13s</span></div><p class="what">Primeira garfada, em close, sem mostrar o rosto inteiro.</p></div>
+              <div class="shot"><div class="when"><b>Final</b><span>13–15s</span></div><p class="what">Plano aberto da mesa com o ambiente do salão ao fundo.</p></div>
+            </div>
+          </div>
+
+          <div><p class="label">Texto na tela</p><div class="onscreen"><span>Tomahawk</span><span>A estrela de novembro</span></div></div>
+          <p class="note"><b>Economia de tempo:</b> os dois vídeos do tomahawk serão gravados no mesmo serviço, com o mesmo prato, mantendo a luz igual.</p>
+
+          <div>
+            <span class="tag tag--ref">Referência de linguagem</span>
+            <div class="strip">
+              <figure><img src="img/prato-passado-presente-futuro_2_presente.jpg" alt=""><figcaption>Um plano forte do prato</figcaption></figure>
+              <figure><img src="img/prato-passado-presente-futuro_3_futuro.jpg" alt=""><figcaption>Palavra curta na tela</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="approve" data-video="Vídeo 4 (Tomahawk, a experiência)"></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- CAPTAÇÃO -->
+    <section id="captacao">
+      <h2>Captação</h2>
+      <p class="sub">Checklist para o dia da gravação.</p>
+      <div class="check">
+        <label><input type="checkbox"><span><b>Decoração natalina:</b> com as luzes ligadas, de preferência no fim da tarde, antes de abrir.</span></label>
+        <label><input type="checkbox"><span><b>Pizzas:</b> combinar o horário com o chef e deixar 2 ou 3 pizzas prontas para a sequência final.</span></label>
+        <label><input type="checkbox"><span><b>Tomahawk:</b> prato único, completo, com todos os acompanhamentos, e os dois vídeos no mesmo serviço.</span></label>
+        <label><input type="checkbox"><span><b>Autorização de imagem</b> dos clientes que aparecerem no salão.</span></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Em aberto</h2>
+      <ol class="open">
+        <li>Técnica de preparo e ponto da carne do tomahawk: perguntar ao chef na hora da gravação.</li>
+        <li>Confirmar com o chef a explicação da borda da pizza (fermentação, forno e açúcar caramelizado).</li>
+      </ol>
+    </section>
+
+    <div class="final">
+      <h2>Tudo certo?</h2>
+      <p>Aprove os quatro roteiros de uma vez ou me conte o que ajustar.</p>
+      <a class="btn btn--ok" data-msg="Oi, Marinho! Aprovo os 4 roteiros do Anexo Gastrô. Pode seguir com a gravação. ✅" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aprovar todos os roteiros
+      </a>
+      <a class="btn btn--edit" data-msg="Oi, Marinho! Li os roteiros do Anexo Gastrô e quero ajustar: " target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>Pedir ajustes
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    As imagens de terceiros são só referência de linguagem visual e não serão publicadas.<br>
+    Produção <a href="https://www.instagram.com/mkt.marinho/" target="_blank" rel="noopener">@mkt.marinho</a> · <a href="../../index.html#perfis">portfólio</a>
+  </footer>
+
+  <script>
+    (function () {
+      var WA = "5522997032238";
+      var link = function (msg) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); };
+      var ok = '<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+      var edit = '<svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>';
+      document.querySelectorAll(".approve").forEach(function (el) {
+        var v = el.getAttribute("data-video");
+        el.innerHTML =
+          '<a class="btn btn--ok" target="_blank" rel="noopener" href="' + link("Oi, Marinho! Aprovo o " + v + " do Anexo Gastrô. ✅") + '">' + ok + "Aprovar</a>" +
+          '<a class="btn btn--edit" target="_blank" rel="noopener" href="' + link("Oi, Marinho! No " + v + " do Anexo Gastrô, quero ajustar: ") + '">' + edit + "Pedir ajuste</a>";
+      });
+      document.querySelectorAll(".final [data-msg]").forEach(function (a) { a.href = link(a.getAttribute("data-msg")); });
+    })();
+  </script>
+</body>
+</html>
