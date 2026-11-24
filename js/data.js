@@ -72,7 +72,7 @@ window.MARINHO = {
       id: "gastronomia",
       nome: "Gastronomia",
       icone: "gastronomia",
-      cores: ["#0086d6", "#4fc3ff"], // degradê do avatar (topo, base)
+      cores: ["#24507F", "#0F2235"], // degradê do avatar (topo, base)
       whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero um orçamento de vídeo para o meu restaurante/bar.",
       destaque: {
         titulo: "Quatro Atos",
@@ -101,7 +101,7 @@ window.MARINHO = {
       id: "cirurgias",
       nome: "Cirurgias",
       icone: "cirurgias",
-      cores: ["#008a9e", "#55d3d6"],
+      cores: ["#2B5E80", "#10263A"],
       whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero um orçamento de vídeo para a minha clínica/consultório.",
       destaque: {
         titulo: "Mamoplastia de Aumento",
@@ -141,7 +141,7 @@ window.MARINHO = {
       id: "institucionais",
       nome: "Institucionais",
       icone: "institucionais",
-      cores: ["#1737c9", "#5f80ff"],
+      cores: ["#203F63", "#0D1B2B"],
       whatsappMsg: "Olá, Marinho! Vi seu portfólio e quero um orçamento de vídeo institucional para a minha empresa.",
       destaque: {
         titulo: "Como Funciona o Presbyond",
