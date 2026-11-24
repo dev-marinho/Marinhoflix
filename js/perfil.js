@@ -18,7 +18,6 @@
     heroVideo.poster = d.capa || "";
     heroVideo.src = d.video;
     heroVideo.play().catch(() => {});
-    $("#hero-badge").textContent = "M";
     $("#hero-title").textContent = d.titulo;
     $("#hero-desc").textContent = d.descricao || "";
   }

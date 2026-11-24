@@ -2,15 +2,21 @@
    MARINHO — Portfólio (estilo streaming)
    ========================================================== */
 :root {
-  --blue: #00a8ff;
-  --blue-light: #6fd6ff;
-  --blue-dark: #006fd1;
-  --bg: #000;
-  --panel: #161616;
-  --text: #fff;
-  --muted: #a8a8a8;
+  /* Identidade Marinho · Horizonte */
+  --abismo: #0B1622;
+  --oceano: #1E4D7A;
+  --bruma: #9FB4C7;
+  --areia: #F2EEE6;
 
-  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --blue: var(--oceano);       /* destaque (fundos de botões e selos) */
+  --blue-light: var(--bruma);  /* destaque sobre fundo escuro */
+  --blue-dark: var(--abismo);
+  --bg: var(--abismo);
+  --panel: #101E2D;
+  --text: var(--areia);
+  --muted: #8E9BA8;
+
+  --font-display: "Manrope", "Inter", sans-serif;
   --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --safe-top: env(safe-area-inset-top, 0px);
@@ -49,82 +55,41 @@ ul { list-style: none; }
 }
 
 /* ==========================================================
-   1. ABERTURA  —  "M"  ->  "MARINHO"
+   1. ABERTURA  —  o símbolo se desenha e a escrita aparece
    ========================================================== */
-.intro { display: grid; place-items: center; background: #000; overflow: hidden; }
+.intro { display: grid; place-items: center; background: var(--abismo); overflow: hidden; }
 
-.logo {
-  display: flex;
-  align-items: flex-end;
-  font-family: var(--font-display);
-  font-size: clamp(76px, 25vw, 190px);
-  line-height: 0.8;
-  letter-spacing: 0.015em;
-  transform-origin: 9% 55%;
-  will-change: transform, opacity, filter;
-}
+.mark { display: flex; flex-direction: column; align-items: center; gap: 30px; will-change: transform, opacity; }
+.mark__sym { width: clamp(110px, 32vw, 170px); height: auto; overflow: visible; }
+.mark__sym .ring, .mark__sym .wave { fill: none; stroke: var(--areia); stroke-width: 2.4; stroke-linecap: round; }
+.mark__sym .ring { stroke-dasharray: 271; stroke-dashoffset: 271; transform: rotate(-90deg); transform-origin: 50px 50px; }
+.mark__sym .wave { stroke-dasharray: 130; stroke-dashoffset: 130; }
+.mark__sym .sun { fill: var(--areia); opacity: 0; transform: translateY(16px); transform-box: fill-box; transform-origin: center; }
+.mark__word { width: clamp(220px, 64vw, 380px); height: auto; opacity: 0; letter-spacing: 0; }
+.mark__tag { font-family: var(--font); font-weight: 500; font-size: clamp(10px, 2.6vw, 13px); letter-spacing: .42em; color: var(--bruma); opacity: 0; margin-top: -14px; padding-left: .42em; }
 
-/* letras com degradê azul (efeito "fita" iluminada) */
-.logo__m,
-.logo__rest > span {
-  display: inline-block;
-  background: linear-gradient(180deg, var(--blue-light) 0%, var(--blue) 42%, var(--blue-dark) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-top: 0.06em;
-}
+.intro.play .ring { animation: draw 1s cubic-bezier(.65,0,.35,1) .1s forwards; }
+.intro.play .sun { animation: sunrise .8s cubic-bezier(.16,1,.3,1) .3s forwards; }
+.intro.play .wave--1 { animation: draw .9s cubic-bezier(.65,0,.35,1) .55s forwards; }
+.intro.play .wave--2 { animation: draw .9s cubic-bezier(.65,0,.35,1) .72s forwards; }
+.intro.play .mark__word { animation: wordIn 1.1s cubic-bezier(.16,1,.3,1) 1.05s forwards; }
+.intro.play .mark__tag { animation: tagIn .9s ease 1.55s forwards; }
+.intro.play .mark { animation: markOut .9s cubic-bezier(.7,0,.84,0) 2.8s forwards; }
 
-.logo__m { opacity: 0; }
-.logo__rest { display: inline-flex; max-width: 0; overflow: hidden; }
-.logo__rest > span { opacity: 0; transform: translateX(-0.35em); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes sunrise { to { opacity: 1; transform: translateY(0); } }
+@keyframes wordIn { from { opacity: 0; transform: scaleX(1.18); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes tagIn { to { opacity: .9; } }
+@keyframes markOut { to { opacity: 0; transform: scale(1.06); filter: blur(4px); } }
 
-.intro.play .logo {
-  animation:
-    glow 1.1s ease-in-out 1.55s,
-    logoOut 0.95s cubic-bezier(0.7, 0, 0.84, 0) 2.75s forwards;
-}
-.intro.play .logo__m {
-  animation: mIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-}
-.intro.play .logo__rest {
-  animation: expand 0.85s cubic-bezier(0.65, 0, 0.35, 1) 1.05s forwards;
-}
-.intro.play .logo__rest > span {
-  animation: letterIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(1.1s + var(--i) * 0.07s);
-}
-
-@keyframes mIn {
-  0% { opacity: 0; transform: scale(1.6); filter: blur(14px); }
-  100% { opacity: 1; transform: scale(1); filter: blur(0); }
-}
-@keyframes expand {
-  to { max-width: var(--rest-w, 3em); }
-}
-@keyframes letterIn {
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes glow {
-  0%, 100% { filter: drop-shadow(0 0 0 rgba(0, 168, 255, 0)); }
-  50% { filter: drop-shadow(0 0 26px rgba(0, 168, 255, 0.85)); }
-}
-@keyframes logoOut {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(9); opacity: 0; }
-}
-
-/* acessibilidade: sem zoom/blur para quem prefere menos movimento */
-.intro.reduced .logo,
-.intro.reduced .logo__m,
-.intro.reduced .logo__rest,
-.intro.reduced .logo__rest > span { animation: none; opacity: 1; transform: none; max-width: none; }
+.intro.reduced .ring, .intro.reduced .wave { stroke-dashoffset: 0; animation: none; }
+.intro.reduced .sun, .intro.reduced .mark__word, .intro.reduced .mark__tag { opacity: 1; transform: none; animation: none; }
 
 /* ==========================================================
    2. QUAL O SEU NEGÓCIO?
    ========================================================== */
 .profiles {
-  background: #000;
+  background: var(--bg);
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -145,8 +110,8 @@ ul { list-style: none; }
 /* fundo de exemplo enquanto não há vídeo/foto */
 .profiles__bg.is-placeholder {
   background:
-    radial-gradient(90% 55% at 72% 22%, rgba(0, 168, 255, 0.45), transparent 62%),
-    radial-gradient(70% 50% at 12% 70%, rgba(0, 111, 209, 0.35), transparent 65%),
+    radial-gradient(90% 55% at 72% 22%, rgba(159, 180, 199, 0.25), transparent 62%),
+    radial-gradient(70% 50% at 12% 70%, rgba(159, 180, 199, 0.19), transparent 65%),
     linear-gradient(180deg, #0a1424 0%, #04070d 100%);
 }
 .profiles__bg.is-placeholder::before {
@@ -154,7 +119,7 @@ ul { list-style: none; }
   content: "";
   position: absolute;
   inset: -20%;
-  background: repeating-linear-gradient(115deg, transparent 0 46px, rgba(111, 214, 255, 0.05) 46px 48px);
+  background: repeating-linear-gradient(115deg, transparent 0 46px, rgba(159, 180, 199, 0.04) 46px 48px);
   animation: drift 18s linear infinite;
 }
 @keyframes drift { to { transform: translateX(96px); } }
@@ -164,11 +129,11 @@ ul { list-style: none; }
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.45) 0%,
-    rgba(0, 0, 0, 0) 22%,
-    rgba(0, 0, 0, 0.1) 42%,
-    rgba(0, 0, 0, 0.7) 72%,
-    #000 100%
+    rgba(11, 22, 34, 0.5) 0%,
+    rgba(11, 22, 34, 0) 22%,
+    rgba(11, 22, 34, 0.12) 42%,
+    rgba(11, 22, 34, 0.78) 72%,
+    var(--abismo) 100%
   );
 }
 
@@ -180,28 +145,16 @@ ul { list-style: none; }
   padding: 0 24px;
   text-align: center;
 }
-/* Marca "MARINHO" estilizada (mesma linguagem da abertura) */
-.profiles__logo {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(76px, 25vw, 150px);
-  line-height: 0.82;
-  letter-spacing: 0.02em;
-  padding-top: 0.06em;
-  background: linear-gradient(180deg, #a6e6ff 0%, var(--blue-light) 22%, var(--blue) 55%, var(--blue-dark) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 22px rgba(0, 168, 255, 0.45)) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.7));
-}
+/* Marca (logo vertical) */
+.profiles__logo { margin: 0; line-height: 0; }
+.profiles__logo img { width: clamp(190px, 56vw, 300px); height: auto; filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.55)); }
 .profiles__line {
   display: block;
-  width: 64px;
-  height: 2px;
-  margin: 16px auto 14px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, transparent, var(--blue), transparent);
-  box-shadow: 0 0 12px rgba(0, 168, 255, 0.8);
+  width: 40px;
+  height: 1px;
+  margin: 18px auto 14px;
+  background: var(--bruma);
+  opacity: .7;
 }
 .profiles__sub {
   margin: 0 auto;
@@ -210,7 +163,7 @@ ul { list-style: none; }
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(242, 238, 230, 0.9);
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
 }
 
@@ -255,9 +208,10 @@ ul { list-style: none; }
   display: block;
   width: 100%;
   aspect-ratio: 1;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  background: linear-gradient(180deg, var(--c1) 0%, var(--c2) 100%);
+  background: linear-gradient(160deg, var(--c1) 0%, var(--c2) 100%);
+  border: 1px solid rgba(159, 180, 199, 0.18);
   outline: 3px solid transparent;
   outline-offset: 3px;
   transition: transform 0.2s ease, outline-color 0.2s ease, box-shadow 0.2s ease;
@@ -273,17 +227,17 @@ ul { list-style: none; }
   pointer-events: none;
 }
 .profile__tile svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.profile__name { font-size: 15px; font-weight: 600; color: #e6e6e6; transition: color 0.2s; }
+.profile__name { font-size: 14px; font-weight: 500; letter-spacing: .04em; color: #D9D6CF; transition: color 0.2s; }
 
 .profile:hover .profile__tile,
-.profile:focus-visible .profile__tile { outline-color: #fff; }
+.profile:focus-visible .profile__tile { outline-color: var(--areia); }
 .profile:hover .profile__name,
 .profile:focus-visible .profile__name { color: #fff; }
 .profile:focus-visible { outline: none; }
 .profile:active .profile__tile { transform: scale(0.94); }
 .profile.is-picked .profile__tile {
   transform: scale(0.94);
-  box-shadow: 0 0 0 4px rgba(0, 168, 255, 0.35), 0 0 34px rgba(0, 168, 255, 0.6);
+  box-shadow: 0 0 0 4px rgba(159, 180, 199, 0.19), 0 0 34px rgba(159, 180, 199, 0.33);
 }
 
 /* "Não achou o seu perfil?" */
@@ -303,13 +257,14 @@ ul { list-style: none; }
 .profiles__cta-text span,
 .profiles__cta-text strong { display: block; }
 .profiles__cta-text strong {
-  margin-top: 2px;
+  margin-top: 6px;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 28px;
-  line-height: 1.05;
-  letter-spacing: 0.02em;
-  color: #fff;
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--areia);
 }
 .profiles__cta-btn {
   display: inline-flex;
@@ -318,26 +273,25 @@ ul { list-style: none; }
   gap: 10px;
   padding: 14px 24px;
   border-radius: 999px;
-  border: 1.5px solid var(--blue);
-  background: rgba(0, 168, 255, 0.1);
-  color: #fff;
+  border: 1px solid rgba(159, 180, 199, 0.5);
+  background: transparent;
+  color: var(--areia);
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 0 22px rgba(0, 168, 255, 0.25), inset 0 0 14px rgba(0, 168, 255, 0.12);
   transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
 }
 .profiles__cta-btn svg {
   width: 22px;
   height: 22px;
   fill: none;
-  stroke: var(--blue);
+  stroke: var(--bruma);
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.profiles__cta-btn svg .fill { fill: var(--blue); stroke: none; }
-.profiles__cta-btn:hover { background: rgba(0, 168, 255, 0.2); box-shadow: 0 0 30px rgba(0, 168, 255, 0.45); }
+.profiles__cta-btn svg .fill { fill: var(--bruma); stroke: none; }
+.profiles__cta-btn:hover { background: rgba(159, 180, 199, 0.1); }
 .profiles__cta-btn:active { transform: scale(0.96); }
 
 /* entrada suave da tela */
@@ -399,8 +353,8 @@ ul { list-style: none; }
   max-width: calc(100% - 32px);
   padding: 14px 20px;
   border-radius: 14px;
-  background: rgba(30, 30, 30, 0.92);
-  border: 1px solid rgba(0, 168, 255, 0.35);
+  background: rgba(16, 30, 45, 0.94);
+  border: 1px solid rgba(159, 180, 199, 0.19);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);

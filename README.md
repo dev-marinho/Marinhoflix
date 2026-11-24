@@ -12,6 +12,11 @@ Portfólio em estilo de plataforma de streaming, feito em HTML, CSS e JavaScript
 
 Em todas as páginas internas: Instagram, e-mail (copia com um toque), **Orçamento** no WhatsApp com mensagem pronta por área e barra flutuante.
 
+## Identidade visual
+Identidade **Horizonte**: símbolo de lente com sol e mar, escrita em Manrope Light.
+Cores: Abismo `#0B1622` · Oceano `#1E4D7A` · Bruma `#9FB4C7` · Areia `#F2EEE6`. Fontes: Manrope (títulos) e Inter (textos).
+Logos do site em `assets/brand/`.
+
 ## Onde editar
 Todos os textos, contatos, perfis, vídeos e links ficam em **`js/data.js`**.
 

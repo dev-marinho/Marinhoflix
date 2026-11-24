@@ -7,8 +7,8 @@
 
   // Tempos da abertura (segundos) — sincronizados com o CSS
   const T = {
-    mIn: 0.1,      // "M" aparece
-    expand: 1.05,  // abre para "MARINHO"
+    // 0,1 s o círculo começa a se desenhar · 0,3 s o sol nasce
+    // 1,05 s a escrita MARINHO aparece · 2,8 s a marca sai
     end: 3.7,      // troca para a tela de perfis
   };
 
@@ -32,25 +32,6 @@
   }
 
   /* ---------- Abertura ---------- */
-  function buildLogo() {
-    const rest = $("#logo-rest");
-    data.marca.slice(1).split("").forEach((letter, i) => {
-      const span = document.createElement("span");
-      span.textContent = letter;
-      span.style.setProperty("--i", i);
-      rest.appendChild(span);
-    });
-  }
-
-  function measureLogo() {
-    // Mede a largura real do "ARINHO" para a expansão ficar exata
-    const rest = $("#logo-rest");
-    rest.style.maxWidth = "none";
-    const w = rest.scrollWidth;
-    rest.style.maxWidth = "";
-    rest.style.setProperty("--rest-w", Math.ceil(w) + 2 + "px");
-  }
-
   function playIntroAudio() {
     // iPhone: modo "playback" faz o som tocar mesmo com o celular no silencioso
     try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}
@@ -64,7 +45,6 @@
     // Tenta tocar o som. Se o navegador bloquear som automático
     // (padrão em celulares), a animação segue normalmente em silêncio.
     playIntroAudio();
-    measureLogo();
 
     if (reduceMotion) {
       $("#intro").classList.add("play", "reduced");
@@ -148,7 +128,6 @@
   }
 
   /* ---------- Início ---------- */
-  buildLogo();
   buildProfilesHero();
   buildProfilesGrid();
 
@@ -160,11 +139,9 @@
     return;
   }
 
-  // Começa a abertura assim que a fonte da logo carrega (no máx. 1,2 s de tela preta)
+  // Começa a abertura logo depois de a página carregar
   let started = false;
   const go = () => { if (!started) { started = true; startIntro(); } };
-  if (document.fonts && document.fonts.load) {
-    document.fonts.load('400 1em "Bebas Neue"').then(go, go);
-  }
-  setTimeout(go, 1200);
+  // a escrita do logo é vetorial: não precisa esperar fonte
+  setTimeout(go, 250);
 })();
